@@ -1,0 +1,45 @@
+# Ignorar el entorno virtual
+venv/
+*.egg-info/
+
+# Archivos de bases de datos
+*.sqlite3
+db.sqlite3
+
+# Archivos de migración de Django
+*/migrations/*
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Archivos de configuraciones IDE
+.vscode/
+.idea/
+
+# Archivos de configuración de PyCharm
+*.iml
+
+# Archivos de configuración de Windows
+Thumbs.db
+Desktop.ini
+
+# Archivos de configuraciones de Mac
+.DS_Store
+
+# Archivos generados por el servidor
+/static/
+/media/
+
+# Carpeta para almacenar imágenes y archivos generados
+*.zip
+*.tar.gz
+
+# Ignorar la carpeta staticfiles generada por collectstatic
+/staticfiles/

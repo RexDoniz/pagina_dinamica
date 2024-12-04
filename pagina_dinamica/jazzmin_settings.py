@@ -2,7 +2,7 @@ JAZZMIN_SETTINGS = {
     "site_title": "Administrador",
     "site_header": "Página Dinámica",
     "site_brand": "Página Dinámica",
-    # "site_logo": "img/logo.png",  # Logo del sitio
+    "site_logo": "img/logo.png",  # Logo del sitio
     "welcome_sign": "Bienvenido al Administrador",
     "user_themes": True,
 
@@ -23,7 +23,7 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     "related_modal_active": True,
     "show_ui_builder": False,
-    "changeform_format": "single",  # Formato del formulario (único)
+    "changeform_format": "horizontal_tabs",
 
     "custom_links": {
         "main": [{

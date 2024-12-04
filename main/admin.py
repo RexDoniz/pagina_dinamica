@@ -1,14 +1,21 @@
 from django.contrib import admin
+from image_uploader_widget.admin import ImageUploaderInline
+from image_uploader_widget.widgets import ImageUploaderWidget
 
 from .choices import TIPO_PRECIO_CHOICES
-from .models import Categoria, Item, Banner, Cliente, Precio, Paquete
+from .models import Categoria, Item, Banner, Cliente, Precio, Paquete, ImagenProducto
 from django.utils.translation import gettext_lazy as _
+from django.utils.html import mark_safe
+
+import locale
+
+locale.setlocale(locale.LC_MONETARY, 'es_MX.UTF-8')
 
 
 class CategoriaAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'descripcion', 'estado')  # Asegúrate de que los campos sean accesibles
+    list_display = ('nombre', 'descripcion', 'estado')
     search_fields = ('nombre',)
-    list_filter = ('estado',)  # Asegúrate de que 'estado' sea un campo en el modelo
+    list_filter = ('estado',)
     ordering = ['nombre']
 
     fieldsets = (
@@ -20,6 +27,8 @@ class CategoriaAdmin(admin.ModelAdmin):
         })
     )
 
+    related_modal_active = True
+
 @admin.register(Categoria)
 class CategoriaAdminAdmin(CategoriaAdmin):
     pass
@@ -27,66 +36,87 @@ class CategoriaAdminAdmin(CategoriaAdmin):
 class PrecioInline(admin.TabularInline):
     model = Precio
     extra = 0  # No agregar filas extras automáticamente
-    fields = ('tipo_precio', 'precio', 'descripcion', 'activo',)
-    readonly_fields = ('tipo_precio',)
+    fields = ('tipo_precio', 'precio', 'fecha_inicio', 'fecha_fin', 'activo',)
     can_delete = False  # No permitir eliminar precios predeterminados
 
-    def has_add_permission(self, request, obj):
-        return False  # No permitir agregar nuevos precios desde el inline
-
     def get_formset(self, request, obj=None, **kwargs):
-        """ Personaliza el formulario para el inline """
         formset = super().get_formset(request, obj, **kwargs)
 
-        # Cuando no hay precios asociados al producto, crear los precios por defecto.
+        # Cuando no hay precios asociados al producto, crear los precios por defecto
         if obj and not obj.precios.exists():
             for tipo, _ in TIPO_PRECIO_CHOICES:
                 Precio.objects.create(
                     producto=obj,
-                    tipo_precio=tipo,
-                    activo=(tipo == 'estandar'),  # Solo el tipo 'estandar' será activo por defecto
+                    tipo_precio=tipo[0],  # Accede al valor de la tupla
+                    precio=0,  # Define un precio predeterminado
+                    activo=(tipo[0] == 'Estándar'),  # Solo el tipo 'Estándar' será activo por defecto
                 )
         return formset
 
 
+class ImagenProductoInline(ImageUploaderInline):
+    model = ImagenProducto
+    fields = ['imagen']
+
+    class Media:
+        css = {
+            'all': ('css/custom_admin.css',)
+        }
+
 # Definir el modelo de Producto
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('codigo', 'nombre', 'categoria', 'disponible', 'estado', 'creado_en', 'actualizado_en')
-    search_fields = ('nombre', 'descripcion')
+    list_display = ('codigo', 'mostrar_imagen', 'nombre', 'categoria', 'disponible', 'estado', 'creado_en', 'actualizado_en')
+    search_fields = ('codigo', 'nombre', 'descripcion')
     list_filter = ('categoria', 'estado', 'disponible')
     ordering = ['nombre']
 
-    # Definir los inlines para incluir el paquete de productos (si aplica en tu caso)
     fieldsets = (
-        (None, {
+        ('Información General', {
             'fields': (
-                ('codigo', ),
+                ('imagen_portada', ),
                 ('tipo',),
-                ('nombre', ),
+                ('codigo', 'nombre'),
                 ('descripcion',),
                 ('categoria',),
-                ('imagen', ),
-                ('disponible', )
-            )
-        }),
-        (_('Fechas'), {
-            'fields': ('creado_en', 'actualizado_en'),
+                ('disponible', ),
+                ('creado_en', 'actualizado_en')
+            ),
+            'classes': ('tab',),
         }),
     )
 
     readonly_fields = ('creado_en', 'actualizado_en')
-    inlines = [PrecioInline]
+    inlines = [ImagenProductoInline, PrecioInline]
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name == 'imagen_portada':
+            kwargs['widget'] = ImageUploaderWidget()
+        return super().formfield_for_dbfield(db_field, **kwargs)
+
+    def mostrar_imagen(self, obj):
+        if obj.imagen_portada:
+            return mark_safe(f'<img src="{obj.imagen_portada.url}" style="max-width: 100px; height: auto;" />')
+        return "-"
+
+    mostrar_imagen.short_description = 'Imagen'
+
+
+    class Media:
+        css = {
+            'all': ('css/custom_admin.css',)  # Asegúrate de que la ruta sea correcta
+        }
 
 
 @admin.register(Item)
 class ItemAdminAdmin(ItemAdmin):
     pass
 
-# Inline para agregar Items al Paquete
+
 class PaqueteItemInline(admin.TabularInline):
     model = Paquete.productos.through  # Relación Many-to-Many entre Paquete e Item
     extra = 1  # Número de filas vacías que se mostrarán para agregar productos
-    fields = ('item',)  # Solo mostrar el campo 'item' que es el modelo relacionado
+    fields = ('item', 'imagen', 'precio')  # Nuevas columnas para imagen y precio
+    readonly_fields = ('imagen', 'precio')  # Hacer que estas columnas sean solo lectura
 
     def get_formset(self, request, obj=None, **kwargs):
         formset = super().get_formset(request, obj, **kwargs)
@@ -94,23 +124,74 @@ class PaqueteItemInline(admin.TabularInline):
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
-        # Usar select_related para mejorar la eficiencia de la consulta de datos relacionados
-        return queryset.select_related('item__categoria')
+        # No usar select_related para obtener campos no relacionados
+        return queryset.select_related('item')  # Obtener el 'item' relacionado
+
+    def imagen(self, obj):
+        # Obtener la imagen del item relacionado
+        if obj.item and obj.item.imagen_portada:
+            return mark_safe(f'<img src="{obj.item.imagen_portada.url}" style="max-width: 100px; height: auto;" />')
+        return "-"
+
+    def precio(self, obj):
+        # Obtener el precio del tipo "Estándar"
+        precio = obj.item.precios.filter(tipo_precio='estandar').first()
+        if precio:
+            return f"${precio.precio:,.2f}"  # Formatear como precio con comas y decimales
+        return "-"
+
+    imagen.short_description = 'Imagen'
+    precio.short_description = 'Precio Estándar'
+
+    class Media:
+        js = ('js/actualizar_item_inline.js',)
 
 
 class PaqueteAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'descripcion', 'precio', 'fecha_inicio', 'fecha_fin', 'activo')
+    list_display = ('id', 'nombre', 'mostrar_banner', 'descripcion', 'precio_formateado', 'fecha_inicio', 'fecha_fin', 'activo', )
     search_fields = ('nombre', 'descripcion')
     list_filter = ('activo',)
     ordering = ['nombre']
 
     fieldsets = (
         (None, {
-            'fields': ('nombre', 'descripcion', 'precio', 'fecha_inicio', 'fecha_fin', 'activo')
+            'fields': (
+                ('banner', ),
+                ('nombre',),
+                ( 'descripcion',),
+                ( 'precio',),
+                ('fecha_inicio', 'fecha_fin',),
+                ( 'activo', )
+            )
         }),
     )
 
-    inlines = [PaqueteItemInline]  # Añadir el inline para agregar productos al paquete
+    inlines = [PaqueteItemInline]
+
+    def formfield_for_dbfield(self, db_field, **kwargs):
+        if db_field.name == 'banner':
+            kwargs['widget'] = ImageUploaderWidget()
+        return super().formfield_for_dbfield(db_field, **kwargs)
+
+    def mostrar_banner(self, obj):
+        if obj.banner:
+            return mark_safe(f'<img src="{obj.banner.url}" style="max-width: 100px; height: auto;" />')
+        return "-"
+
+    mostrar_banner.short_description = 'Banner'
+
+    class Media:
+        css = {
+            'all': ('css/custom_admin.css',)  # Asegúrate de que la ruta sea correcta
+        }
+
+    def precio_formateado(self, obj):
+        # Usamos el método number_format para formatear el número
+        if obj.precio:
+            return f"${obj.precio:,.2f}"  # Formato para moneda: ejemplo $1,000.00
+        return "-"
+
+    precio_formateado.short_description = 'Precio'
 
 @admin.register(Paquete)
 class PaqueteAdminAdmin(PaqueteAdmin):
@@ -119,6 +200,7 @@ class PaqueteAdminAdmin(PaqueteAdmin):
 
 
 # Definir el modelo de Banner
+# NO SE ESTA USANDO POR EL MOMENTO
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('titulo', 'activo', 'creado_en', 'actualizado_en')
     search_fields = ('titulo',)
@@ -140,12 +222,13 @@ class BannerAdmin(admin.ModelAdmin):
     readonly_fields = ('creado_en', 'actualizado_en')
 
 
-@admin.register(Banner)
+'''@admin.register(Banner)
 class BannerAdminAdmin(BannerAdmin):
-    pass
+    pass'''
 
 
 # Definir el modelo de Cliente
+# NO SE ESTA USANDO POR EL MOMENTO
 class ClienteAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'correo', 'telefono', 'estado', 'registrado_en')
     search_fields = ('nombre', 'correo')
@@ -164,6 +247,6 @@ class ClienteAdmin(admin.ModelAdmin):
     readonly_fields = ('registrado_en',)
 
 
-@admin.register(Cliente)
+'''@admin.register(Cliente)
 class ClienteAdminAdmin(ClienteAdmin):
-    pass
+    pass'''

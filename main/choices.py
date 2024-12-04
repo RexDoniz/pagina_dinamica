@@ -8,6 +8,7 @@ TIPO_PRECIO_CHOICES = [
     ('distribuidor', 'Distribuidor'),
 ]
 
+
 # Tipos de item
 TIPO_CHOICES = [
     ('producto', 'Producto'),

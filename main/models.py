@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from image_uploader_widget.postgres import ImageListField
+
 from .choices import TIPO_PRECIO_CHOICES, TIPO_CHOICES  # Importa los choices
 
 class Categoria(models.Model):
@@ -21,8 +23,8 @@ class Item(models.Model):
     codigo = models.CharField(max_length=100, unique=True)  # Código único para identificar el producto
     nombre = models.CharField(max_length=200)  # Nombre del producto
     descripcion = models.TextField()  # Descripción detallada del producto
+    imagen_portada = models.ImageField(verbose_name='Portada',upload_to='productos/imagenes/', blank=True, null=True)
     tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)  # Tipo de producto (por ejemplo, 'Servicio', 'Producto')
-    imagen = models.ImageField(upload_to='productos/images/', null=True, blank=True)  # Imagen del producto
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='productos')  # Categoría
     disponible = models.BooleanField(default=True)  # Disponibilidad
     estado = models.BooleanField(default=True)  # Estado activo/inactivo
@@ -32,8 +34,8 @@ class Item(models.Model):
     usuario_editor = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='productos_editados', blank=True)  # Usuario editor
 
     class Meta:
-        verbose_name = 'Item'
-        verbose_name_plural = 'Items'
+        verbose_name = 'Poducto - Servicio'
+        verbose_name_plural = 'Productos - Servicios'
         ordering = ['nombre']
 
     def __str__(self):
@@ -46,7 +48,7 @@ class Precio(models.Model):
     producto = models.ForeignKey(Item, related_name='precios', on_delete=models.CASCADE)  # Producto relacionado
     precio = models.DecimalField(max_digits=10, decimal_places=2)  # Precio
     descripcion = models.CharField(max_length=50, blank=True, null=True)
-    tipo_precio = models.CharField(max_length=50, choices=TIPO_PRECIO_CHOICES)  # Tipo de precio
+    tipo_precio = models.CharField(max_length=50)  # Tipo de precio
     activo = models.BooleanField(default=False)  # Indica si es el precio activo
     fecha_inicio = models.DateField(null=True, blank=True)  # Fecha de inicio
     fecha_fin = models.DateField(null=True, blank=True)  # Fecha de fin
@@ -61,6 +63,18 @@ class Precio(models.Model):
 
     def __str__(self):
         return f'{self.producto.nombre} - {self.tipo_precio} - ${self.precio}'
+
+
+class ImagenProducto(models.Model):
+    producto = models.ForeignKey('Item', related_name='imagenes', on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='productos/imagenes/')
+
+    class Meta:
+        verbose_name = 'Imagen del Producto - Servios'
+        verbose_name_plural = 'Imágenes del Producto - Servicio'
+
+    def __str__(self):
+        return f'{self.producto} - Imagen'
 
 
 class Banner(models.Model):
@@ -109,6 +123,7 @@ class Cliente(models.Model):
 class Paquete(models.Model):
     nombre = models.CharField(max_length=200)  # Nombre del paquete
     descripcion = models.TextField()  # Descripción del paquete
+    banner = models.ImageField(verbose_name='banner',upload_to='banner/paquetes/', blank=True, null=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)  # Precio del paquete
     fecha_inicio = models.DateField(null=True, blank=True)  # Fecha de inicio del paquete
     fecha_fin = models.DateField(null=True, blank=True)  # Fecha de fin del paquete

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'image_uploader_widget',
 ]
 
 MIDDLEWARE = [
@@ -82,14 +83,16 @@ WSGI_APPLICATION = 'pagina_dinamica.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Usamos MySQL como backend
-        'NAME': env('DATABASE_NAME'),          # El nombre de la base de datos
-        'USER': env('DATABASE_USER'),          # El nombre de usuario para la base de datos
-        'PASSWORD': env('DATABASE_PASSWORD'),  # La contraseña para la base de datos
-        'HOST': env('DATABASE_HOST'),          # El host (en este caso localhost)
-        'PORT': env('DATABASE_PORT', default=3306),  # El puerto de MySQL, 3306 es el valor predeterminado
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASSWORD'),
+        'HOST': env('DATABASE_HOST'),
+        'PORT': env('DATABASE_PORT', default=5432),
     }
 }
+
+
 
 
 # Password validation
@@ -128,12 +131,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # Agrega los ajustes de Jazzmin
 JAZZMIN_SETTINGS = JAZZMIN_SETTINGS
 JAZZMIN_UI_TWEAKS = JAZZMIN_UI_TWEAKS
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
