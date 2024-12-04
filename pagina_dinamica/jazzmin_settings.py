@@ -2,7 +2,7 @@ JAZZMIN_SETTINGS = {
     "site_title": "Administrador",
     "site_header": "Página Dinámica",
     "site_brand": "Página Dinámica",
-    "site_logo": "img/logo.png",  # Logo del sitio
+    "site_logo": "img/logo.png",
     "welcome_sign": "Bienvenido al Administrador",
     "user_themes": True,
 
@@ -12,7 +12,7 @@ JAZZMIN_SETTINGS = {
 
     "copyright": "REX DEVELOP",
     "site_logo_classes": "rounded-circle",
-    "custom_css": "css/custom_admin.css",  # Archivo CSS personalizado para el administrador
+    "custom_css": "css/custom_admin.css",
 
     "topmenu_links": [
         {"name": "Inicio", "url": "admin:index", "permissions": ["auth.view_user"]},
