@@ -1,0 +1,260 @@
+<!doctype html>
+
+<html lang="en" class="no-js">
+<head>
+	<title>Foody</title>
+
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/foody.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+
+	<!-- Container -->
+	<div id="container">
+		<!-- Header
+		    ================================================== -->
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav m-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="menu.html">Menu</a>
+							<ul class="dropdown">
+								<li><a href="menu.html">Menu Small</a></li>
+								<li><a href="menu-medium.html">Menu Medium</a></li>
+								<li><a href="menu-big.html">Menu Big</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about.html">About</a>
+						</li>
+					</ul>
+					<a href="index.html" class="middle-logo"><img src="images/logo.png" alt=""></a>
+					<ul class="navbar-nav m-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="delivery.html">Delivery</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="blog.html">Blog</a>
+							<ul class="dropdown">
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="single-post.html">Single Post</a></li>
+								<li><a href="error-404.html">Error 404</a></li>
+								<li><a href="under-construction.html">Comming soon</a></li>
+								<li><a href="shopping-cart.html">Shopping Cart</a></li>
+								<li><a href="shopping-checkout.html">Checkout</a></li>
+							</ul>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">Locations</a>
+						</li>
+					</ul>
+				</div>
+				<a href="#" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>2</span></a>
+
+			</nav>
+		</header>
+		<!-- End Header -->
+
+		<!-- page-banner-section 
+			================================================== -->
+		<section class="page-banner-section delivery">
+			<div class="container">
+				<p>You are here: <a href="index.html">Home</a> / <a href="shopping-cart.html">Shopping Cart</a></p>
+			</div>
+		</section>
+		<!-- End page-banner section -->
+
+		<!-- shopping-cart-section 
+			================================================== -->
+		<section class="shopping-cart-section">
+			<div class="container">
+				<div class="checking-form">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="3">Product</th>
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tr>
+								<td><a href="#" class="remove-item"><i class="fa fa-trash-o"></i></a></td>
+								<td><img src="upload/menu/1.jpg" alt=""></td>
+								<td>
+									<h2><a href="#">Vivamus vestibulum nulla</a></h2>
+								</td>
+								<td>$<span class="price stat-price">15.99</span></td>
+								<td>
+									<div class="quantity-add">
+										<button class="decrease">-</button>
+										<input type="text" class="quantity-number" value="1"/>
+										<button class="increase">+</button>
+									</div>
+								</td>
+								<td>$<span class="price tot-price">15.99</span></td>
+							</tr>
+							<tr>
+								<td><a href="#" class="remove-item"><i class="fa fa-trash-o"></i></a></td>
+								<td><img src="upload/menu/2.jpg" alt=""></td>
+								<td>
+									<h2><a href="#">Quisque volutpat mat</a></h2>
+								</td>
+								<td>$<span class="price stat-price">20.99</span></td>
+								<td>
+									<div class="quantity-add">
+										<button class="decrease">-</button>
+										<input type="text" class="quantity-number" value="1"/>
+										<button class="increase">+</button>
+									</div>
+								</td>
+								<td>$<span class="price tot-price">20.99</span></td>
+							</tr>
+						</table>
+					</div>
+					<div class="checkout-buttons">
+						<div class="left-buttons">
+							<input type="text" name="coupon-code" placeholder="enter coupon code"/>
+							<a href="#" class="button-one grey">Apply Coupon</a>
+						</div>
+						<div class="right-buttons">
+							<a href="#" class="button-one grey">Update Cart</a>
+							<a href="#" class="button-one grey">Proceed to Checkout</a>
+						</div>
+					</div>
+					<div class="total-box">
+						<div class="row">
+							<div class="col-md-6 col-lg-4">
+								<h2>Calculate Shipping</h2>
+								<input type="text" name="country" placeholder="country"/>
+								<input type="text" name="city" placeholder="city"/>
+								<input type="text" name="postcode" placeholder="postcode / zip"/>
+								<a href="#" class="button-one grey">Update Totals</a>
+							</div>
+							<div class="col-md-6 col-lg-4 offset-lg-4">
+								<div class="inner-total">
+									<h2>Cart Total</h2>
+									<div class="table-responsive">
+										<table class="table">
+											<tr>
+												<td>Cart Subtotal</td>
+												<td><span class="total-price">$199.98</span></td>
+											</tr>
+											<tr>
+												<td>Shipping and Handling</td>
+												<td><span class="shipping-price">Free Shipping</span></td>
+											</tr>
+											<tr>
+												<td>Order Total</td>
+												<td><span class="total-price-withshipping">$199.98</span></td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End shopping-cart section -->
+
+		<!-- footer 
+			================================================== -->
+		<footer>
+			<div class="upper-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3">
+							<div class="widgets-area">
+								<div class="footer-widget text-widget">
+									<h2>Opening hours</h2>
+									<ul class="working-list">
+										<li>
+											<span>Monda - Friday</span> <span class="right-align">08:00 - 23:00h</span>
+										</li>
+										<li>
+											<span>Saturday</span> <span class="right-align">08:00 - 23:00h</span>
+										</li>
+										<li>
+											<span>Sunday</span> <span class="right-align">08:00 - 23:00h</span>
+										</li>
+									</ul>
+								</div>
+								<div class="footer-widget text-widget">
+									<h2>our address</h2>
+									<p>Pizzeria Head Office <br>54866 2nd Road NY 48766<br> Ney York, U.S.A</p>
+
+									<p>Make Reservations: 0 800 111 555 666 <br> Email: info@yourdomain.com</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<div class="map-holder">
+								<div class="map"></div>
+								<div class="order-btn-box">
+									<a class="button-one" href="#">make your order now!</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="widgets-area">
+								<div class="footer-widget subscribe-widget">
+									<h2>subscribe now</h2>
+									<p>Subscribe now for our new updates and get regular offers and stuff</p>
+									<form id="subscribe-form">
+										<input type="text" name="email" id="email" placeholder="Enter Your Email"/>
+										<input type="submit" id="submit_subscribe" value="Subscribe">
+									</form>
+								</div>
+								<div class="footer-widget social-widget">
+									<h2>Social Networks</h2>
+									<ul class="social-icons">
+										<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="copyright-line">
+				<p><span>Foody &copy;</span> 2019 for Envato Pty Ltd. HTML template by <span>Nunforest</span></p>
+			</div>
+		</footer>
+		<!-- End footer -->
+
+	</div>
+	<!-- End Container -->
+
+	<script src="js/foody.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/DevSolutionSkill.min.js"></script>
+	<script src="js/jquery.themepunch.tools.min.js"></script>
+	<script src="js/jquery.themepunch.revolution.min.js"></script>
+	<script src="js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
+	<script src="js/gmap3.min.js"></script>
+	
+</body>
+</html>

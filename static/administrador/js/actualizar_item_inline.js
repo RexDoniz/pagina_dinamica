@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (itemId) {
                 // Realizar una solicitud AJAX para obtener la imagen y el precio del Item
-                fetch(`/main/obtener_imagen_y_precio/${itemId}/`)
+                fetch(`/obtener_imagen_y_precio/${itemId}/`)
                     .then(response => response.json())
                     .then(data => {
                         var imagenUrl = data.imagen;
