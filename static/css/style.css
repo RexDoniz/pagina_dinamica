@@ -42,7 +42,7 @@
 }
 
 .heading1, h1 {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 40px;
     font-family: "Gochi Hand", cursive;
     font-weight: 400;
@@ -53,7 +53,7 @@
 }
 
 .heading2, h2 {
-    color: var(--primary-color);
+    color: black;
     font-size: 18px;
     font-family: "Gochi Hand", cursive;
     font-weight: 400;
@@ -64,7 +64,7 @@
 }
 
 .heading3, h3 {
-    color: #999999;
+    color: black;
     font-size: 14px;
     font-family: "Gochi Hand", cursive;
     font-weight: 400;
@@ -156,7 +156,7 @@ header.active .navbar {
 }
 
 .navbar-nav>li>a {
-    color: var(--secondary-color) !important;
+    color: var(--tertiary-color) !important;
     font-size: 19px;
     font-family: "Gochi Hand", cursive;
     font-weight: 400;
@@ -214,7 +214,7 @@ header.active .navbar {
 
 .navbar-nav li ul.dropdown li a {
     display: block;
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 19px;
     font-family: "Gochi Hand", cursive;
     font-weight: 400;
@@ -463,14 +463,14 @@ header a.shopping-cart:hover {
     font-family: "PT Serif", serif;
     font-style: normal !important;
     font-weight: 400 !important;
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 
 #home-section .tp-caption.Concept-SubTitle a.order-button {
     display: inline-block;
     text-align: center;
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     padding: 30px 15px 15px;
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
@@ -882,7 +882,7 @@ section.week-item-section .image-holder img {
 }
 
 section.week-item-section .item-content .title span {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 15px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
@@ -893,12 +893,12 @@ section.week-item-section .item-content .title span {
 }
 
 section.week-item-section .item-content p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     margin-bottom: 15px;
 }
 
 section.week-item-section .item-content h1.price {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 65px;
     line-height: 80px;
     margin: 0 0 10px;
@@ -913,7 +913,7 @@ section.week-item-section .item-content h1.price span {
 }
 
 section.week-item-section .item-content div.social-share span {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -929,7 +929,7 @@ section.week-item-section .item-content div.social-share ul.social-icons li {
 }
 
 section.week-item-section .item-content div.social-share ul.social-icons li a {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -1770,7 +1770,7 @@ section.medium-menu-section {
 
 section.medium-menu-section h1 {
     text-align: center;
-    color: var(--primary-color);
+    color: var(--tertiary-color);
     font-size: 30px;
     margin-bottom: 30px;
 }
@@ -1861,7 +1861,7 @@ section.medium-menu-section.skin-col-back {
 }
 
 section.medium-menu-section.skin-col-back h1 {
-    color: var(--secondary-color)fff;
+    color: var(--tertiary-color);
 }
 
 section.medium-menu-section.skin-col-back .menu-post .image-holder span.best-selling,
@@ -1922,12 +1922,12 @@ section.big-menu-section .item-content {
 }
 
 section.big-menu-section .item-content p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     margin-bottom: 15px;
 }
 
 section.big-menu-section .item-content h1.price {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 65px;
     line-height: 80px;
     margin: 0 0 10px;
@@ -1942,7 +1942,7 @@ section.big-menu-section .item-content h1.price span {
 }
 
 section.big-menu-section .item-content div.social-share span {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -1958,7 +1958,7 @@ section.big-menu-section .item-content div.social-share ul.social-icons li {
 }
 
 section.big-menu-section .item-content div.social-share ul.social-icons li a {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -2264,7 +2264,7 @@ section.team-section div.team-post .image-holder img {
 }
 
 section.team-section div.team-post .item-content .title span {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 15px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
@@ -2275,7 +2275,7 @@ section.team-section div.team-post .item-content .title span {
 }
 
 section.team-section div.team-post .item-content p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     margin-bottom: 15px;
 }
 
@@ -2296,7 +2296,7 @@ section.team-section div.team-post .item-content div.social-share ul.social-icon
 }
 
 section.team-section div.team-post .item-content div.social-share ul.social-icons li a {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -2470,7 +2470,7 @@ div.ceo-post .image-holder img {
 }
 
 div.ceo-post .item-content .title span {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 15px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
@@ -2481,7 +2481,7 @@ div.ceo-post .item-content .title span {
 }
 
 div.ceo-post .item-content p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     margin-bottom: 15px;
 }
 
@@ -2506,7 +2506,7 @@ div.ceo-post .item-content div.social-share ul.social-icons li {
 }
 
 div.ceo-post .item-content div.social-share ul.social-icons li a {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
@@ -3169,7 +3169,7 @@ section.location-section .location-box .location-address.active {
 }
 
 section.location-section .location-box .location-address.active h2, section.location-section .location-box .location-address.active h3, section.location-section .location-box .location-address.active ul.working-list li, section.location-section .location-box .location-address.active p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 
 section.location-section .location-box .location-address.active ul.working-list li span {
@@ -3207,7 +3207,7 @@ section.location-section .location-box .location-address h2 {
 
 section.location-section .location-box .location-address h3 {
     font-size: 25px;
-    color: #000;
+    color: var(--tertiary-color);
     margin-bottom: 15px;
 }
 
@@ -3624,7 +3624,7 @@ footer .upper-footer .widgets-area p {
 footer .upper-footer .widgets-area ul.working-list li {
     display: block;
     margin-bottom: 10px;
-    color: #000;
+    color: white;
     font-size: 15px;
     font-family: "PT Serif", serif;
     line-height: 24px;
@@ -3661,7 +3661,7 @@ footer .upper-footer .widgets-area #subscribe-form input[type="text"] {
     width: 100%;
     padding: 13px 20px;
     background: var(--secondary-color);
-    color: #696969;
+    color: black;
     font-size: 15px;
     font-family: "PT Serif", serif;
     outline: none;
@@ -3686,7 +3686,7 @@ footer .upper-footer .widgets-area #subscribe-form input[type="submit"] {
     text-transform: uppercase;
     padding: 15px 40px;
     letter-spacing: 1px;
-    background: #bbbbbb;
+    background: black !important;
     font-weight: 700;
     outline: none;
     border: none;
@@ -3726,7 +3726,7 @@ footer .upper-footer .widgets-area ul.social-icons li a {
     text-align: center;
     line-height: 40px;
     font-size: 17px;
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 
 footer .upper-footer .widgets-area ul.social-icons li a:hover {
