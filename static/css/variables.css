@@ -1,0 +1,69 @@
+:root {
+    /* Colores principales */
+    --primary-color-1: #00B140; /* Verde brillante - Color original: Verde de la bandera de México */
+    --primary-color: #007A2F; /* Verde más oscuro para el degradado */
+    --secondary-color: #FF4F58; /* Rojo brillante */
+    --tertiary-color: #F5F5F5; /* Blanco suave */
+    --highlight-color: #FFB6C1; /* Rosa suave para acentos */
+
+    /* Colores de texto */
+    --text-color: #333333; /* Color estándar de texto */
+    --heading-color: #222222; /* Color para los encabezados */
+    --link-color: #FF4F58; /* Rojo para enlaces */
+    --link-hover-color: #00B140; /* Verde para hover de enlaces */
+
+    /* Fondos */
+    --background-color: #F5F5F5; /* Blanco suave como fondo */
+    --table-header-color: #00B140; /* Verde brillante para encabezados de tabla */
+    --table-cell-color: #FFFFFF; /* Blanco para celdas de tabla */
+
+    /* Fuentes y tamaños */
+    --font-family-primary: "PT Serif", serif;
+    --font-family-secondary: "Gochi Hand", cursive;
+    --font-size-base: 16px;
+    --font-size-large: 18px;
+    --font-size-small: 14px;
+
+    /* Espaciados */
+    --spacing-base: 16px;
+    --spacing-small: 8px;
+    --spacing-large: 24px;
+
+    /* Bordes */
+    --border-radius: 8px;
+    --border-width: 1px;
+    --border-color: #ccc;
+
+    /* Sombra y transición */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s ease;
+}
+
+/* Animación de degradado dinámico para el color primario */
+@keyframes gradientAnimation {
+    0% {
+        background: linear-gradient(45deg, var(--primary-color-1), var(--primary-color-2));
+    }
+    50% {
+        background: linear-gradient(45deg, var(--primary-color-2), var(--primary-color-1));
+    }
+    100% {
+        background: linear-gradient(45deg, var(--primary-color-1), var(--primary-color-2));
+    }
+}
+
+.primary-button {
+    background: linear-gradient(45deg, var(--primary-color-1), var(--primary-color-2));
+    animation: gradientAnimation 5s ease infinite;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-large);
+}
+
+.primary-button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

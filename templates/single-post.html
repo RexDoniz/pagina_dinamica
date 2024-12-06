@@ -2,6 +2,7 @@
 
 <html lang="en" class="no-js">
 <head>
+	{% load static %}
 	<title>Foody</title>
 
 	<meta charset="utf-8">
@@ -10,8 +11,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/foody.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="{% static 'css/foody.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 
 </head>
 <body>
@@ -20,48 +22,34 @@
 	<div id="container">
 		<!-- Header
 		    ================================================== -->
-		<header>
+				<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+						<li class="nav-item active">
+							<a class="nav-link active" href="/">Inicio</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="menu.html">Menu</a>
+							<a class="nav-link" href="/menu">Productos</a>
 							<ul class="dropdown">
-								<li><a href="menu.html">Menu Small</a></li>
-								<li><a href="menu-medium.html">Menu Medium</a></li>
-								<li><a href="menu-big.html">Menu Big</a></li>
+								<li><a href="/menu">Menu Small</a></li>
+								<li><a href="/menu-medium">Menu Medium</a></li>
+								<li><a href="/menu-big">Menu Big</a></li>
 							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
 						</li>
 					</ul>
-					<a href="index.html" class="middle-logo"><img src="images/logo.png" alt=""></a>
+					<a href="/" class="middle-logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="delivery.html">Delivery</a>
-						</li>
-						<li class="nav-item active">
-							<a class="nav-link active" href="blog.html">Blog</a>
-							<ul class="dropdown">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-post.html">Single Post</a></li>
-								<li><a href="error-404.html">Error 404</a></li>
-								<li><a href="under-construction.html">Comming soon</a></li>
-								<li><a href="shopping-cart.html">Shopping Cart</a></li>
-								<li><a href="shopping-checkout.html">Checkout</a></li>
-							</ul>
+							<a class="nav-link" href="/about">Nosotros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Locations</a>
+							<a class="nav-link" href="/contact">Contacto</a>
 						</li>
 					</ul>
 				</div>

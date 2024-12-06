@@ -12,9 +12,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="{% static 'mexbull/css/foody.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'mexbull/css/style.css' %}">
-
+	<link rel="stylesheet" href="{% static 'css/foody.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 </head>
 <body>
 
@@ -24,50 +24,36 @@
 		    ================================================== -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="{% static 'mexbull/index.html' %}"><img src="{% static 'mexbull/images/logo.png' %}" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="{% static 'mexbull/index.html' %}">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% static 'mexbull/menu.html' %}">Menu</a>
-							<ul class="dropdown">
-								<li><a href="{% static 'mexbull/menu.html' %}">Menu Small</a></li>
-								<li><a href="{% static 'mexbull/menu-medium.html' %}">Menu Medium</a></li>
-								<li><a href="{% static 'mexbull/menu-big.html' %}">Menu Big</a></li>
-							</ul>
-						</li>
 						<li class="nav-item active">
-							<a class="nav-link active" href="{% static 'mexbull/about.html' %}">About</a>
+							<a class="nav-link active" href="/">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/menu">Productos</a>
+							<ul class="dropdown">
+								<li><a href="/menu">Menu Small</a></li>
+								<li><a href="/menu-medium">Menu Medium</a></li>
+								<li><a href="/menu-big">Menu Big</a></li>
+							</ul>
 						</li>
 					</ul>
-					<a href="{% static 'mexbull/index.html' %}" class="middle-logo"><img src="{% static 'mexbull/images/logo.png' %}" alt=""></a>
+					<a href="/" class="middle-logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="{% static 'mexbull/delivery.html' %}">Delivery</a>
+							<a class="nav-link" href="/about">Nosotros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="{% static 'mexbull/blog.html' %}">Blog</a>
-							<ul class="dropdown">
-								<li><a href="{% static 'mexbull/blog.html' %}">Blog</a></li>
-								<li><a href="{% static 'mexbull/single-post.html' %}">Single Post</a></li>
-								<li><a href="{% static 'mexbull/error-404.html' %}">Error 404</a></li>
-								<li><a href="{% static 'mexbull/under-construction.html' %}">Comming soon</a></li>
-								<li><a href="{% static 'mexbull/shopping-cart.html' %}">Shopping Cart</a></li>
-								<li><a href="{% static 'mexbull/shopping-checkout.html' %}">Checkout</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="{% static 'mexbull/contact.html' %}">Locations</a>
+							<a class="nav-link" href="/contact">Contacto</a>
 						</li>
 					</ul>
 				</div>
-				<a href="{% static 'mexbull/#" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>2</span></a>
+				<a href="#" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>2</span></a>
 
 			</nav>
 		</header>
@@ -77,7 +63,7 @@
 			================================================== -->
 		<section class="page-banner-section delivery">
 			<div class="container">
-				<p>You are here: <a href="{% static 'mexbull/index.html' %}">Home</a> / <a href="{% static 'mexbull/about.html' %}">About</a></p>
+				<p>You are here: <a href="index">Home</a> / <a href="about">About</a></p>
 			</div>
 		</section>
 		<!-- End page-banner section -->
@@ -132,7 +118,7 @@
 				</div>
 			</div>
 			<div class="image-holder">
-				<img src="{% static 'mexbull/upload/others/a3.jpg' %}" alt="">
+				<img src="{% static 'upload/others/a3.jpg' %}" alt="">
 			</div>
 		</section>
 		<!-- End story section -->
@@ -152,20 +138,20 @@
 								<p>Rob Hansom is a chef and a native son dedicated to the culinary riches of southern Louisiana. In his restaurants, entrepreneurial pursuits, and public activities, he preserves and promotes ingredients, techniques, and heritage one mouth-watering dish at a time.</p>
 								<div class="social-share">
 									<ul class="social-icons">
-										<li><a href="{% static 'mexbull/#">Facebook</a></li>
-										<li><a href="{% static 'mexbull/#">Twitter</a></li>
-										<li><a href="{% static 'mexbull/#">Instagram</a></li>
+										<li><a href="#">Facebook</a></li>
+										<li><a href="#">Twitter</a></li>
+										<li><a href="#">Instagram</a></li>
 									</ul>
 								</div>
 								<div class="pagination-btn">
-									<a href="{% static 'mexbull/#"></a>
+									<a href="#"></a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="image-holder">
-					<img src="{% static 'mexbull/upload/others/a7.jpg' %}" alt="">
+					<img src="{% static 'upload/others/a7.jpg' %}" alt="">
 				</div>
 			</div>
 		</section>
@@ -189,15 +175,15 @@
 							<div class="item">
 								<div class="team-post">
 									<div class="team-gal">
-										<img src="{% static 'mexbull/upload/others/team1.jpg' %}" alt="">
+										<img src="{% static 'upload/others/team1.jpg' %}" alt="">
 										<ul class="social-icons">
-											<li><a href="{% static 'mexbull/#">Facebook</a></li>
-											<li><a href="{% static 'mexbull/#">Twitter</a></li>
-											<li><a href="{% static 'mexbull/#">Instagram</a></li>
+											<li><a href="#">Facebook</a></li>
+											<li><a href="#">Twitter</a></li>
+											<li><a href="#">Instagram</a></li>
 										</ul>
 									</div>
 									<div class="post-content">
-										<h2><a href="{% static 'mexbull/#">rob hansom</a></h2>
+										<h2><a href="#">rob hansom</a></h2>
 										<span>master chef</span>
 									</div>
 								</div>
@@ -206,15 +192,15 @@
 							<div class="item">
 								<div class="team-post">
 									<div class="team-gal">
-										<img src="{% static 'mexbull/upload/others/team2.jpg' %}" alt="">
+										<img src="{% static 'upload/others/team2.jpg' %}" alt="">
 										<ul class="social-icons">
-											<li><a href="{% static 'mexbull/#">Facebook</a></li>
-											<li><a href="{% static 'mexbull/#">Twitter</a></li>
-											<li><a href="{% static 'mexbull/#">Instagram</a></li>
+											<li><a href="#">Facebook</a></li>
+											<li><a href="#">Twitter</a></li>
+											<li><a href="#">Instagram</a></li>
 										</ul>
 									</div>
 									<div class="post-content">
-										<h2><a href="{% static 'mexbull/#">john doe</a></h2>
+										<h2><a href="#">john doe</a></h2>
 										<span>chef</span>
 									</div>
 								</div>
@@ -223,7 +209,7 @@
 							<div class="item">
 								<div class="team-post">
 									<div class="team-gal">
-										<img src="{% static 'mexbull/upload/others/team3.jpg' %}" alt="">
+										<img src="{% static 'upload/others/team3.jpg' %}" alt="">
 										<ul class="social-icons">
 											<li><a href="#">Facebook</a></li>
 											<li><a href="#">Twitter</a></li>
@@ -231,7 +217,7 @@
 										</ul>
 									</div>
 									<div class="post-content">
-										<h2><a href="{% static 'mexbull/#">hans wyatt</a></h2>
+										<h2><a href="#">hans wyatt</a></h2>
 										<span>Manager</span>
 									</div>
 								</div>
@@ -240,15 +226,15 @@
 							<div class="item">
 								<div class="team-post">
 									<div class="team-gal">
-										<img src="{% static 'mexbull/upload/others/team1.jpg' %}" alt="">
+										<img src="{% static 'upload/others/team1.jpg' %}" alt="">
 										<ul class="social-icons">
-											<li><a href="{% static 'mexbull/#">Facebook</a></li>
-											<li><a href="{% static 'mexbull/#">Twitter</a></li>
-											<li><a href="{% static 'mexbull/#">Instagram</a></li>
+											<li><a href="#">Facebook</a></li>
+											<li><a href="#">Twitter</a></li>
+											<li><a href="#">Instagram</a></li>
 										</ul>
 									</div>
 									<div class="post-content">
-										<h2><a href="{% static 'mexbull/#">rob hansom</a></h2>
+										<h2><a href="#">rob hansom</a></h2>
 										<span>master chef</span>
 									</div>
 								</div>
@@ -268,7 +254,7 @@
 				<div class="banner-box">
 					<h1>
 						<span>Come and be part of us!</span>
-						<a class="button-one" href="{% static 'mexbull/#">Open Jobs</a>
+						<a class="button-one" href="#">Open Jobs</a>
 					</h1>
 				</div>
 			</div>
@@ -309,7 +295,7 @@
 							<div class="map-holder">
 								<div class="map"></div>
 								<div class="order-btn-box">
-									<a class="button-one" href="{% static 'mexbull/#">make your order now!</a>
+									<a class="button-one" href="#">make your order now!</a>
 								</div>
 							</div>
 						</div>
@@ -326,10 +312,10 @@
 								<div class="footer-widget social-widget">
 									<h2>Social Networks</h2>
 									<ul class="social-icons">
-										<li><a href="{% static 'mexbull/#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="{% static 'mexbull/#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-										<li><a href="{% static 'mexbull/#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-										<li><a href="{% static 'mexbull/#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+										<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -346,14 +332,14 @@
 	</div>
 	<!-- End Container -->
 
-	<script src="{% static 'mexbull/js/foody.min.js' %}"></script>
-	<script src="{% static 'mexbull/js/bootstrap.min.js' %}"></script>
-	<script src="{% static 'mexbull/js/DevSolutionSkill.min.js' %}"></script>
-	<script src="{% static 'mexbull/js/jquery.themepunch.tools.min.js' %}"></script>
-	<script src="{% static 'mexbull/js/jquery.themepunch.revolution.min.js' %}"></script>
-	<script src="{% static 'mexbull/js/script.js' %}"></script>
+	<script src="{% static 'js/foody.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/DevSolutionSkill.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
-	<script src="{% static 'mexbull/js/gmap3.min.js' %}"></script>
+	<script src="{% static 'js/gmap3.min.js' %}"></script>
 	
 </body>
 </html>

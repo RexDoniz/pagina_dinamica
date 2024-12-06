@@ -3,17 +3,21 @@
 
 <html lang="en" class="no-js">
 <head>
+	{% load static %}
+
 	<title>Foody</title>
 
 	<meta charset="utf-8">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/foody.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<link rel="stylesheet" href="{% static 'css/foody.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 </head>
 <body>
 
@@ -23,46 +27,32 @@
 		    ================================================== -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
 						<li class="nav-item active">
-							<a class="nav-link active" href="menu.html">Menu</a>
-							<ul class="dropdown">
-								<li><a href="menu.html">Menu Small</a></li>
-								<li><a href="menu-medium.html">Menu Medium</a></li>
-								<li><a href="menu-big.html">Menu Big</a></li>
-							</ul>
+							<a class="nav-link active" href="/">Inicio</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
+							<a class="nav-link" href="/menu">Productos</a>
+							<ul class="dropdown">
+								<li><a href="/menu">Menu Small</a></li>
+								<li><a href="/menu-medium">Menu Medium</a></li>
+								<li><a href="/menu-big">Menu Big</a></li>
+							</ul>
 						</li>
 					</ul>
-					<a href="index.html" class="middle-logo"><img src="images/logo.png" alt=""></a>
+					<a href="/" class="middle-logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="delivery.html">Delivery</a>
+							<a class="nav-link" href="/about">Nosotros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="blog.html">Blog</a>
-							<ul class="dropdown">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-post.html">Single Post</a></li>
-								<li><a href="error-404.html">Error 404</a></li>
-								<li><a href="under-construction.html">Comming soon</a></li>
-								<li><a href="shopping-cart.html">Shopping Cart</a></li>
-								<li><a href="shopping-checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Locations</a>
+							<a class="nav-link" href="/contact">Contacto</a>
 						</li>
 					</ul>
 				</div>
@@ -76,7 +66,7 @@
 			================================================== -->
 		<section class="page-banner-section menu">
 			<div class="container">
-				<p>You are here: <a href="index.html">Home</a> / <a href="menu.html">Menu</a></p>
+				<p>Tú estás en: <a href="/">Inicio</a> / <a href="/menu">Productos y Servicios</a></p>
 			</div>
 		</section>
 		<!-- End page-banner section -->
@@ -91,7 +81,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">chicken burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -107,7 +97,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Beef Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -123,7 +113,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Double Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -141,7 +131,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">chicken burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -157,7 +147,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Beef Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -173,7 +163,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Double Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -194,7 +184,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">chicken burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -210,7 +200,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Beef Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -226,7 +216,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Double Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -247,7 +237,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">chicken burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -263,7 +253,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Beef Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -279,7 +269,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Double Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -297,7 +287,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">chicken burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -313,7 +303,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Beef Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -329,7 +319,7 @@
 						<div class="col-lg-4 col-md-6">
 							<div class="menu-post">
 								<div class="menu-content">
-									<div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
+									<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
 									<div class="post-content">
 										<h2><a href="#">Double Burger</a></h2>
 										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
@@ -419,14 +409,14 @@
 	</div>
 	<!-- End Container -->
 
-	<script src="js/foody.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/DevSolutionSkill.min.js"></script>
-	<script src="js/jquery.themepunch.tools.min.js"></script>
-	<script src="js/jquery.themepunch.revolution.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="{% static 'js/foody.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/DevSolutionSkill.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
-	<script src="js/gmap3.min.js"></script>
+	<script src="{% static 'js/gmap3.min.js' %}"></script>
 	
 </body>
 </html>

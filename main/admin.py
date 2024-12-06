@@ -60,7 +60,7 @@ class ImagenProductoInline(ImageUploaderInline):
 
     class Media:
         css = {
-            'all': ('administrador/css/custom_admin.css',)
+            'all': ('css/custom_admin.css',)
         }
 
 # Definir el modelo de Producto
@@ -103,7 +103,7 @@ class ItemAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('administrador/css/custom_admin.css',)  # Asegúrate de que la ruta sea correcta
+            'all': ('css/custom_admin.css',)  # Asegúrate de que la ruta sea correcta
         }
 
 
@@ -144,7 +144,7 @@ class PaqueteItemInline(admin.TabularInline):
     precio.short_description = 'Precio Estándar'
 
     class Media:
-        js = ('administrador/js/actualizar_item_inline.js',)
+        js = ('js/actualizar_item_inline.js',)
 
 
 class PaqueteAdmin(admin.ModelAdmin):
@@ -182,7 +182,7 @@ class PaqueteAdmin(admin.ModelAdmin):
 
     class Media:
         css = {
-            'all': ('administrador/css/custom_admin.css',)  # Asegúrate de que la ruta sea correcta
+            'all': ('css/custom_admin.css',)  # Asegúrate de que la ruta sea correcta
         }
 
     def precio_formateado(self, obj):

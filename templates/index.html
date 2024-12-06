@@ -13,9 +13,9 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="{% static 'mexbull/css/foody.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'mexbull/css/style.css' %}">
-
+	<link rel="stylesheet" href="{% static 'css/foody.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 </head>
 <body>
 
@@ -25,7 +25,7 @@
 		    ================================================== -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="index.html"><img src="{% static 'mexbull/images/logo.png' %}" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -33,38 +33,24 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item active">
-							<a class="nav-link active" href="index.html">Home</a>
+							<a class="nav-link active" href="/">Inicio</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="menu.html">Menu</a>
+							<a class="nav-link" href="/menu">Productos</a>
 							<ul class="dropdown">
-								<li><a href="menu.html">Menu Small</a></li>
-								<li><a href="menu-medium.html">Menu Medium</a></li>
-								<li><a href="menu-big.html">Menu Big</a></li>
+								<li><a href="/menu">Menu Small</a></li>
+								<li><a href="/menu-medium">Menu Medium</a></li>
+								<li><a href="/menu-big">Menu Big</a></li>
 							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
 						</li>
 					</ul>
-					<a href="index.html" class="middle-logo"><img src="{% static 'mexbull/images/logo.png' %}" alt=""></a>
+					<a href="/" class="middle-logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="delivery.html">Delivery</a>
+							<a class="nav-link" href="/about">Nosotros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="blog.html">Blog</a>
-							<ul class="dropdown">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-post.html">Single Post</a></li>
-								<li><a href="error-404.html">Error 404</a></li>
-								<li><a href="under-construction.html">Comming soon</a></li>
-								<li><a href="shopping-cart.html">Shopping Cart</a></li>
-								<li><a href="shopping-checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Locations</a>
+							<a class="nav-link" href="/contact">Contacto</a>
 						</li>
 					</ul>
 				</div>
@@ -82,9 +68,9 @@
 				<div id="rev_slider_202_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.1.1RC">
 					<ul>
 						<!-- SLIDE  -->
-						<li data-index="rs-672" data-transition="slidingoverlaydown" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{% static 'mexbull/upload/slider/1.jpg' %}" data-rotate="0" data-saveperformance="off" data-title="unique" data-description="">
+						<li data-index="rs-672" data-transition="slidingoverlaydown" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{% static 'upload/slider/1.jpg' %}" data-rotate="0" data-saveperformance="off" data-title="unique" data-description="">
 							<!-- MAIN IMAGE -->
-							<img src="{% static 'mexbull/upload/slider/1.jpg' %}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+							<img src="{% static 'upload/slider/1.jpg' %}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 							<!-- LAYERS -->
 
 							<!-- LAYER NR. 1 -->
@@ -125,7 +111,7 @@
 								data-splitin="none"
 								data-splitout="none"
 								data-responsive_offset="on"
-								style="z-index: 7; white-space: nowrap;">quarter with <br>punder cheese
+								style="z-index: 7; white-space: nowrap;">PAQUETE NAVIDAD <br>MAS DIVERSION!!
 							</div>
 
 							<!-- LAYER NR. 2 -->
@@ -168,14 +154,14 @@
 								data-splitin="none"
 								data-splitout="none"
 								data-responsive_offset="on"
-								style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">Order <br> <span>$10.</span><span>99</span></a>
+								style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">Order <br> <span>$14,999.</span><span>99</span></a>
 							</div>
 
 						</li>
 						<!-- SLIDE  -->
-						<li data-index="rs-674" data-transition="slidingoverlayright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{% static 'mexbull/upload/slider/2.jpg' %}" data-rotate="0" data-saveperformance="off" data-title="professional" data-description="">
+						<li data-index="rs-674" data-transition="slidingoverlayright" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{% static 'upload/slider/2.jpg' %}" data-rotate="0" data-saveperformance="off" data-title="professional" data-description="">
 							<!-- MAIN IMAGE -->
-							<img src="{% static 'mexbull/upload/slider/2.jpg' %}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+							<img src="{% static 'upload/slider/2.jpg' %}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 							<!-- LAYERS -->
 
 							<!-- LAYER NR. 1 -->
@@ -216,7 +202,7 @@
 								data-splitin="none"
 								data-splitout="none"
 								data-responsive_offset="on"
-								style="z-index: 7; white-space: nowrap;">quarter with <br>punder cheese
+								style="z-index: 7; white-space: nowrap;">PAQUETE BUEN FIN <br>POR FIN EL BUEN FIN!!!
 							</div>
 
 							<!-- LAYER NR. 2 -->
@@ -259,13 +245,13 @@
 								data-splitin="none"
 								data-splitout="none"
 								data-responsive_offset="on"
-								style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">Order <br> <span>$10.</span><span>99</span></a>
+								style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">Order <br> <span>$50,000.</span><span>99</span></a>
 							</div>
 						</li>
 						<!-- SLIDE  -->
-						<li data-index="rs-675" data-transition="slidingoverlayup" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{% static 'mexbull/upload/slider/3.jpg' %}" data-rotate="0" data-saveperformance="off" data-title="ideas" data-description="">
+						<li data-index="rs-675" data-transition="slidingoverlayup" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="{% static 'upload/slider/3.jpg' %}" data-rotate="0" data-saveperformance="off" data-title="ideas" data-description="">
 							<!-- MAIN IMAGE -->
-							<img src="{% static 'mexbull/upload/slider/3.jpg' %}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+							<img src="{% static 'upload/slider/3.jpg' %}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
 							<!-- LAYERS -->
 							<!-- LAYERS -->
 
@@ -307,7 +293,7 @@
 								data-splitin="none"
 								data-splitout="none"
 								data-responsive_offset="on"
-								style="z-index: 7; white-space: nowrap;">quarter with <br>punder cheese
+								style="z-index: 7; white-space: nowrap;">PAQUETE BRINCOS <br>DIERAS!!!
 							</div>
 
 							<!-- LAYER NR. 2 -->
@@ -350,7 +336,7 @@
 								data-splitin="none"
 								data-splitout="none"
 								data-responsive_offset="on"
-								style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">Order <br> <span>$10.</span><span>99</span></a>
+								style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">COMPRALO <br> <span>$5,000.</span><span>99</span></a>
 							</div>
 
 						</li>
@@ -391,63 +377,10 @@
 				</div>
 			</div>
 			<div class="image-holder">
-				<img src="{% static 'mexbull/upload/others/a1.jpg' %}" alt="">
+				<img src="{% static 'upload/others/a1.jpg' %}" alt="">
 			</div>
 		</section>
 		<!-- End week-item section -->
-
-		<!-- news-section 
-			================================================== -->
-		<section class="news-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5">
-						<div class="news-box">
-							<div class="title-box">
-								<h1 class="title-line">
-									<span>News &amp; Events</span>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900.88 190"><polygon points="900.88 0 868.07 190 60.56 190 0 48.04 900.88 0"/></svg>
-								</h1>
-								<p>See what going around our shops, be part of it and say a word</p>
-							</div>
-							<div class="news-post">
-								<h2><a href="single-post.html">INTRODUCING PROVISIONS AND TRADITIONS</a></h2>
-								<ul class="news-post-tags">
-									<li><a href="#">johny bravo</a></li>
-									<li>12-01-2016</li>
-									<li><a href="#">13 comments</a></li>
-								</ul>
-							</div>
-							<div class="news-post">
-								<h2><a href="single-post.html">LIFE LESSONS THROUGH FOOD</a></h2>
-								<ul class="news-post-tags">
-									<li><a href="#">john Doe</a></li>
-									<li>12-01-2016</li>
-									<li><a href="#">6 comments</a></li>
-								</ul>
-							</div>
-							<div class="news-post">
-								<h2><a href="single-post.html">TOP 10: hot burger RECIPES</a></h2>
-								<ul class="news-post-tags">
-									<li><a href="#">Hansom Rob</a></li>
-									<li>12-01-2016</li>
-									<li><a href="#">25 comments</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 offset-lg-1">
-						<div class="buttons-holder">
-							<a class="button-one grey" href="blog.html">view all events</a>
-						</div>
-						<div class="image-holder">
-							<img src="{% static 'mexbull/upload/others/a2.jpg' %}" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End news section -->
 
 		<!-- story-section 
 			================================================== -->
@@ -457,17 +390,17 @@
 					<div class="row">
 						<div class="col-lg-8 offset-lg-4">
 							<div class="title">
-								<h1>Our Story</h1>
+								<h1>Nues HISTORIA</h1>
 							</div>
-							<p>A chef is a highly trained and skilled professional cook who is proficient in all aspects of food preparation of a particular cuisine. The word "chef" is derived from the term chef de cuisine, the director or head of a kitchen. </p>
+							<p>Mas de 10 años de experiencia, siempre brindandote la atencion personalizada que mereces. Un logro realizado por la fuerza de trabajo del mejor en el mercado.</p>
 							<div class="skills-box">
 								<div class="row">
 									<div class="col-md-4">
 										<div id="circle1" class="circle-skill" data-percent="85" data-background="#ff9900">
 											<div class="inner-circle">
 												<div>
-													<span>950</span>
-													<p>Daily Burger</p>
+													<span>999</span>
+													<p>Inflables <br> fabricados</p>
 												</div>
 											</div>
 										</div>
@@ -477,7 +410,7 @@
 											<div class="inner-circle">
 												<div>
 													<span>100%</span>
-													<p>Happy Clients</p>
+													<p>Clientes </br> satisfechos</p>
 												</div>
 											</div>
 										</div>
@@ -486,8 +419,8 @@
 										<div id="circle3" class="circle-skill" data-percent="75" data-background="#ff9900">
 											<div class="inner-circle">
 												<div>
-													<span>35</span>
-													<p>Burger Types</p>
+													<span>10</span>
+													<p>Años de <br> Experiencia</p>
 												</div>
 											</div>								
 										</div>
@@ -499,7 +432,7 @@
 				</div>
 			</div>
 			<div class="image-holder">
-				<img src="{% static 'mexbull/upload/others/a3.jpg' %}" alt="">
+				<img src="{% static 'upload/others/a3.jpg' %}" alt="">
 			</div>
 		</section>
 		<!-- End story section -->
@@ -535,7 +468,7 @@
 								</div>
 							</div>
 							<div class="image-holder">
-								<img src="{% static 'mexbull/upload/others/a4.jpg' %}" alt="">
+								<img src="{% static 'upload/others/a4.jpg' %}" alt="">
 							</div>
 						</div>
 					</li>
@@ -565,7 +498,7 @@
 								</div>
 							</div>
 							<div class="image-holder">
-								<img src="{% static 'mexbull/upload/others/a7.jpg' %}" alt="">
+								<img src="{% static 'upload/others/a7.jpg' %}" alt="">
 							</div>
 						</div>
 					</li>
@@ -580,49 +513,6 @@
 		</section>
 		<!-- End team section -->
 
-		<!-- popular-menu-section 
-			================================================== -->
-		<section class="popular-menu-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-5">
-						<div class="menu-box">
-							<div class="title-box">
-								<h1 class="title-line">
-									<span>Our Menu</span>
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900.88 267.49"><polygon points="900.88 0 868.07 267.49 60.56 267.49 0 48.04 900.88 0"/></svg>
-								</h1>
-								<p>Best sellers of the week that we recommend.</p>
-							</div>
-							<ul class="menu-list">
-								<li>
-									<h2><a href="#"><span>single chicken burger</span> <span class="price">$11.99</span></a></h2>
-									<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base </p>
-								</li>
-								<li>
-									<h2><a href="#"><span>beef burger spicey</span> <span class="price">$15.99</span></a></h2>
-									<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base </p>
-								</li>
-								<li>
-									<h2><a href="#"><span>pepperoni vege burger</span> <span class="price">$18.99</span></a></h2>
-									<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base </p>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6 offset-lg-1">
-						<div class="buttons-holder">
-							<a class="button-one grey" href="menu.html">view full menu</a>
-							<a class="button-one grey" href="#">download pdf</a>
-						</div>
-						<div class="image-holder">
-							<img src="{% static 'mexbull/upload/others/a5.jpg' %}" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End popular menu section -->
 
 		<!-- reservation-section 
 			================================================== -->
@@ -657,7 +547,7 @@
 				</div>
 			</div>
 			<div class="image-holder">
-				<img src="{% static 'mexbull/upload/others/a6.png' %}" alt="">
+				<img src="{% static 'upload/others/a6.png' %}" alt="">
 			</div>
 		</section>
 		<!-- End reservation section -->
@@ -669,19 +559,19 @@
 				<div class="testimonial-box">
 					<div class="title-box">
 						<h1 class="title-line">
-							<span>testimonials</span>
+							<span>Testimonios</span>
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900.88 217"><polygon points="900.88 0 868.07 217 60.56 217 0 48.04 900.88 0"/></svg>
 						</h1>
-						<p>Take a time and see what our clients have to say</p>
+						<p>Trabajando y brindando el mejor servicio del Condado</p>
 					</div>
 					<div class="owl-wrapper">
 						<div class="owl-carousel" data-num="2">
 						
 							<div class="item">
 								<div class="testimonial-post">
-									<img src="{% static 'mexbull/upload/others/test1.jpg' %}" alt="">
+									<img src="{% static 'upload/others/test1.jpg' %}" alt="">
 									<div class="post-content">
-										<h2>Bearded guy</h2>
+										<h2>Terrraza Olivares</h2>
 										<span>
 											<i class="fa fa-star" aria-hidden="true"></i>
 											<i class="fa fa-star" aria-hidden="true"></i>
@@ -689,48 +579,14 @@
 											<i class="fa fa-star" aria-hidden="true"></i>
 											<i class="fa fa-star" aria-hidden="true"></i>
 										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
+										<p>Agradezco mucho la atencion, los precios son los mejores que he encotrado, no cabe duda que seran mi proveedor de confianza</p>
 									</div>
 								</div>
 							</div>
 						
 							<div class="item">
 								<div class="testimonial-post">
-									<img src="{% static 'mexbull/upload/others/test2.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Hansom rob</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star-half-o" aria-hidden="true"></i>
-											<i class="fa fa-star-o" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'mexbull/upload/others/test1.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Bearded guy</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'mexbull/upload/others/test2.jpg' %}" alt="">
+									<img src="{% static 'upload/others/test2.jpg' %}" alt="">
 									<div class="post-content">
 										<h2>Hansom rob</h2>
 										<span>
@@ -747,7 +603,41 @@
 						
 							<div class="item">
 								<div class="testimonial-post">
-									<img src="{% static 'mexbull/upload/others/test1.jpg' %}" alt="">
+									<img src="{% static 'upload/others/test1.jpg' %}" alt="">
+									<div class="post-content">
+										<h2>Bearded guy</h2>
+										<span>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+										</span>
+										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item">
+								<div class="testimonial-post">
+									<img src="{% static 'upload/others/test2.jpg' %}" alt="">
+									<div class="post-content">
+										<h2>Hansom rob</h2>
+										<span>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star" aria-hidden="true"></i>
+											<i class="fa fa-star-half-o" aria-hidden="true"></i>
+											<i class="fa fa-star-o" aria-hidden="true"></i>
+										</span>
+										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
+									</div>
+								</div>
+							</div>
+						
+							<div class="item">
+								<div class="testimonial-post">
+									<img src="{% static 'upload/others/test1.jpg' %}" alt="">
 									<div class="post-content">
 										<h2>Bearded guy</h2>
 										<span>
@@ -773,11 +663,11 @@
 			================================================== -->
 		<section class="gallery-section">
 			<ul class="gallery-list">
-				<li><a href="#"><img src="{% static 'mexbull/upload/others/g1.jpg' %}" alt=""></a></li>
-				<li><a href="#"><img src="{% static 'mexbull/upload/others/g2.jpg' %}" alt=""></a></li>
-				<li><a href="#"><img src="{% static 'mexbull/upload/others/g3.jpg' %}" alt=""></a></li>
-				<li><a href="#"><img src="{% static 'mexbull/upload/others/g4.jpg' %}" alt=""></a></li>
-				<li><a href="#"><img src="{% static 'mexbull/upload/others/g5.jpg' %}" alt=""></a></li>
+				<li><a href="#"><img src="{% static 'upload/others/g1.jpg' %}" alt=""></a></li>
+				<li><a href="#"><img src="{% static 'upload/others/g2.jpg' %}" alt=""></a></li>
+				<li><a href="#"><img src="{% static 'upload/others/g3.jpg' %}" alt=""></a></li>
+				<li><a href="#"><img src="{% static 'upload/others/g4.jpg' %}" alt=""></a></li>
+				<li><a href="#"><img src="{% static 'upload/others/g5.jpg' %}" alt=""></a></li>
 			</ul>
 		</section>
 		<!-- End gallery section -->
@@ -852,16 +742,21 @@
 
 	</div>
 	<!-- End Container -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>  <!-- Primero cargar jQuery -->
-	<script async src="{% static 'mexbull/js/jquery.themepunch.tools.min.js' %}"></script>  <!-- Luego cargar herramientas del slider -->
-	<script async src="{% static 'mexbull/js/jquery.themepunch.revolution.min.js' %}"></script>  <!-- Después cargar el plugin Revolution Slider -->
-	<script async src="{% static 'mexbull/js/foody.min.js' %}"></script>  <!-- Y luego los demás scripts -->
-	<script async src="{% static 'mexbull/js/bootstrap.min.js' %}"></script>
-	<script async src="{% static 'mexbull/js/DevSolutionSkill.min.js' %}"></script>
-	<script async src="{% static 'mexbull/js/script.js' %}"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
-	<script async src="{% static 'mexbull/js/gmap3.min.js' %}"></script>
+	<script src="{% static 'js/foody.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/DevSolutionSkill.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
+	<script src="{% static 'js/gmap3.min.js' %}"></script>
+
+	<script src="{% static 'js/extensions/revolution.extension.parallax.min.js' %}"></script>
+	<script src="{% static 'js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+	<script src="{% static 'js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+	<script src="{% static 'js/extensions/revolution.extension.navigation.min.js' %}"></script>
 
 
 
@@ -874,7 +769,7 @@
 			} else {
 				revapi202 = tpj("#rev_slider_202_1").show().revolution({
 					sliderType: "standard",
-					jsFileLocation: "administrador/js/",
+					jsFileLocation: "js/",
 					sliderLayout: "fullscreen",
 					dottedOverlay: "none",
 					delay: 90000,

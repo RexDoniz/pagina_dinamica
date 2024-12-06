@@ -2,6 +2,7 @@
 
 <html lang="en" class="no-js">
 <head>
+	{% load static %}
 	<title>Foody</title>
 
 	<meta charset="utf-8">
@@ -10,8 +11,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/foody.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="{% static 'css/foody.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 
 </head>
 <body>
@@ -22,46 +24,32 @@
 		    ================================================== -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
+						<li class="nav-item active">
+							<a class="nav-link active" href="/">Inicio</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="menu.html">Menu</a>
+							<a class="nav-link" href="/menu">Productos</a>
 							<ul class="dropdown">
-								<li><a href="menu.html">Menu Small</a></li>
-								<li><a href="menu-medium.html">Menu Medium</a></li>
-								<li><a href="menu-big.html">Menu Big</a></li>
+								<li><a href="/menu">Menu Small</a></li>
+								<li><a href="/menu-medium">Menu Medium</a></li>
+								<li><a href="/menu-big">Menu Big</a></li>
 							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
 						</li>
 					</ul>
-					<a href="index.html" class="middle-logo"><img src="images/logo.png" alt=""></a>
+					<a href="/" class="middle-logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="delivery.html">Delivery</a>
+							<a class="nav-link" href="/about">Nosotros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="blog.html">Blog</a>
-							<ul class="dropdown">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-post.html">Single Post</a></li>
-								<li><a href="error-404.html">Error 404</a></li>
-								<li><a href="under-construction.html">Comming soon</a></li>
-								<li><a href="shopping-cart.html">Shopping Cart</a></li>
-								<li><a href="shopping-checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Locations</a>
+							<a class="nav-link" href="/contact">Contacto</a>
 						</li>
 					</ul>
 				</div>
@@ -75,7 +63,7 @@
 			================================================== -->
 		<section class="page-banner-section delivery">
 			<div class="container">
-				<p>You are here: <a href="index.html">Home</a> / <a href="shopping-cart.html">Shopping Cart</a></p>
+				<p>You are here: <a href="index.html">Home</a> / <a href="shopping-checkout.html">Checkout</a></p>
 			</div>
 		</section>
 		<!-- End page-banner section -->
@@ -84,94 +72,98 @@
 			================================================== -->
 		<section class="shopping-cart-section">
 			<div class="container">
-				<div class="checking-form">
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th colspan="3">Product</th>
-									<th>Price</th>
-									<th>Quantity</th>
-									<th>Total</th>
-								</tr>
-							</thead>
-							<tr>
-								<td><a href="#" class="remove-item"><i class="fa fa-trash-o"></i></a></td>
-								<td><img src="upload/menu/1.jpg" alt=""></td>
-								<td>
-									<h2><a href="#">Vivamus vestibulum nulla</a></h2>
-								</td>
-								<td>$<span class="price stat-price">15.99</span></td>
-								<td>
-									<div class="quantity-add">
-										<button class="decrease">-</button>
-										<input type="text" class="quantity-number" value="1"/>
-										<button class="increase">+</button>
-									</div>
-								</td>
-								<td>$<span class="price tot-price">15.99</span></td>
-							</tr>
-							<tr>
-								<td><a href="#" class="remove-item"><i class="fa fa-trash-o"></i></a></td>
-								<td><img src="upload/menu/2.jpg" alt=""></td>
-								<td>
-									<h2><a href="#">Quisque volutpat mat</a></h2>
-								</td>
-								<td>$<span class="price stat-price">20.99</span></td>
-								<td>
-									<div class="quantity-add">
-										<button class="decrease">-</button>
-										<input type="text" class="quantity-number" value="1"/>
-										<button class="increase">+</button>
-									</div>
-								</td>
-								<td>$<span class="price tot-price">20.99</span></td>
-							</tr>
-						</table>
-					</div>
-					<div class="checkout-buttons">
-						<div class="left-buttons">
-							<input type="text" name="coupon-code" placeholder="enter coupon code"/>
-							<a href="#" class="button-one grey">Apply Coupon</a>
-						</div>
-						<div class="right-buttons">
-							<a href="#" class="button-one grey">Update Cart</a>
-							<a href="#" class="button-one grey">Proceed to Checkout</a>
-						</div>
-					</div>
-					<div class="total-box">
-						<div class="row">
-							<div class="col-md-6 col-lg-4">
-								<h2>Calculate Shipping</h2>
-								<input type="text" name="country" placeholder="country"/>
-								<input type="text" name="city" placeholder="city"/>
-								<input type="text" name="postcode" placeholder="postcode / zip"/>
-								<a href="#" class="button-one grey">Update Totals</a>
-							</div>
-							<div class="col-md-6 col-lg-4 offset-lg-4">
-								<div class="inner-total">
-									<h2>Cart Total</h2>
-									<div class="table-responsive">
-										<table class="table">
-											<tr>
-												<td>Cart Subtotal</td>
-												<td><span class="total-price">$199.98</span></td>
-											</tr>
-											<tr>
-												<td>Shipping and Handling</td>
-												<td><span class="shipping-price">Free Shipping</span></td>
-											</tr>
-											<tr>
-												<td>Order Total</td>
-												<td><span class="total-price-withshipping">$199.98</span></td>
-											</tr>
-										</table>
-									</div>
+				<form class="billing-box">
+					<div class="row">
+						<div class="col-lg-6">
+							<h2>Billing Details</h2>
+							<div class="row">
+								<div class="col-md-6">
+									<input type="text" name="first-name" placeholder="first name*"/>
+								</div>
+								<div class="col-md-6">
+									<input type="text" name="last-name" placeholder="last name*"/>
 								</div>
 							</div>
+							<input type="text" name="company" placeholder="company name (optional)"/>
+							<label for="country">Country*</label>
+							<input type="text" name="country" placeholder="country" id="country"/>
+							<label for="address">Street address*</label>
+							<input type="text" name="address" placeholder="house number and street name" id="address"/>
+							<input type="text" name="city" placeholder="town/city*"/>
+							<input type="text" name="postcode" placeholder="postcode / zip*"/>
+							<input type="text" name="phone" placeholder="phone*"/>
+							<input type="text" name="email" placeholder="email*"/>
+						</div>
+						<div class="col-lg-6">
+							<div class="optional-box">
+								<input type="checkbox" name="diff-addres" id="diff-address"/>
+								<h2>Ship to a different address?</h2>
+								<textarea name="order-notes" placeholder="Order notes (optional)"></textarea>
+							</div>
 						</div>
 					</div>
-				</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="inner-total">
+								<h2>Your Order</h2>
+								<div class="table-responsive">
+									<table class="table">
+										<thead>
+											<tr>
+												<th>Product</th>
+												<th>Total</th>
+											</tr>
+										</thead>
+										<tr>
+											<td>Aliquam tincidunt mauris</td>
+											<td>1 x $59.99</td>
+										</tr>
+										<tr>
+											<td>Cras iaculis ultricies nulla</td>
+											<td>1 x $139.99</td>
+										</tr>
+										<tr>
+											<td>Cart Subtotal</td>
+											<td>$199.98</td>
+										</tr>
+										<tr>
+											<td>Shipping and Handling</td>
+											<td>Free Shipping</td>
+										</tr>
+										<tr>
+											<td>Order Total</td>
+											<td>$199.98</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<ul class="pay-list">
+								<li>
+									<input type="radio" name="pay-method" id="direct-bank"/>
+									<div class="checkbox-content">
+										<span>Direct Bank Transfer</span>
+										<p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+									</div>
+								</li>
+								<li>
+									<input type="radio" name="pay-method" id="cheque-payment"/>
+									<div class="checkbox-content">
+										<span>Cheque Payment</span>
+										<p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+									</div>
+								</li>
+								<li>
+									<input type="radio" name="pay-method" id="paypal"/>
+									<div class="checkbox-content">
+										<span>Paypal</span>
+										<p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+									</div>
+								</li>
+							</ul>
+							<a class="button-one grey" href="#">Place Order</a>
+						</div>
+					</div>
+				</form>
 			</div>
 		</section>
 		<!-- End shopping-cart section -->

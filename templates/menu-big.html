@@ -3,6 +3,7 @@
 
 <html lang="en" class="no-js">
 <head>
+	{% load static %}
 	<title>Foody</title>
 
 	<meta charset="utf-8">
@@ -11,8 +12,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/foody.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="{% static 'css/foody.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" href="{% static 'favicon.ico' %}">
 
 </head>
 <body>
@@ -23,46 +25,32 @@
 		    ================================================== -->
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+				<a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt=""></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
 						<li class="nav-item active">
-							<a class="nav-link active" href="menu.html">Menu</a>
-							<ul class="dropdown">
-								<li><a href="menu.html">Menu Small</a></li>
-								<li><a href="menu-medium.html">Menu Medium</a></li>
-								<li><a href="menu-big.html">Menu Big</a></li>
-							</ul>
+							<a class="nav-link active" href="/">Inicio</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
+							<a class="nav-link" href="/menu">Productos</a>
+							<ul class="dropdown">
+								<li><a href="/menu">Menu Small</a></li>
+								<li><a href="/menu-medium">Menu Medium</a></li>
+								<li><a href="/menu-big">Menu Big</a></li>
+							</ul>
 						</li>
 					</ul>
-					<a href="index.html" class="middle-logo"><img src="images/logo.png" alt=""></a>
+					<a href="/" class="middle-logo"><img src="{% static 'images/logo.png' %}" alt=""></a>
 					<ul class="navbar-nav m-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="delivery.html">Delivery</a>
+							<a class="nav-link" href="/about">Nosotros</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="blog.html">Blog</a>
-							<ul class="dropdown">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-post.html">Single Post</a></li>
-								<li><a href="error-404.html">Error 404</a></li>
-								<li><a href="under-construction.html">Comming soon</a></li>
-								<li><a href="shopping-cart.html">Shopping Cart</a></li>
-								<li><a href="shopping-checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Locations</a>
+							<a class="nav-link" href="/contact">Contacto</a>
 						</li>
 					</ul>
 				</div>
@@ -76,211 +64,118 @@
 			================================================== -->
 		<section class="page-banner-section menu">
 			<div class="container">
-				<p>You are here: <a href="index.html">Home</a> / <a href="menu.html">Menu</a></p>
+				<p>You are here: <a href="index">Home</a> / <a href="menu">Menu</a></p>
 			</div>
 		</section>
 		<!-- End page-banner section -->
 
-		<!-- medium-menu-section 
+		<!-- big-menu-section 
 			================================================== -->
-		<section class="medium-menu-section skin-col-back">
-			<div class="container">
-				<div class="menu-box">
-					<h1 class="menu-title">~ Trending Burger ~</h1>
-					<div class="owl-wrapper">
-						<div class="owl-carousel" data-num="3">
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m1.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">chicken burger  /  $11.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m2.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Beef Burger  /  $15.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m3.png" alt="">
-										<span class="best-selling">Best <br> Seller</span>
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Double Burger  /  $13.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m1.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">chicken burger  /  $11.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m2.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Beef Burger  /  $15.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
+		<section class="big-menu-section">
+			<div class="item-content">
+				<div class="title">
+					<h1>CHICKEN Burger</h1>
 				</div>
+				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
+				<h1 class="price">
+					$12.<span>99</span>
+				</h1>
+				<div class="social-share">
+					<span>Share:</span>
+					<ul class="social-icons">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+					</ul>
+				</div>
+				<a href="#" class="button-one">Order Now</a>
+			</div>
+			<div class="image-holder">
+				<img src="upload/menu/b1.jpg" alt="">
 			</div>
 		</section>
-		<!-- End medium-menu section -->
+		<!-- End big-menu section -->
 
-		<!-- medium-menu-section 
+		<!-- big-menu-section 
 			================================================== -->
-		<section class="medium-menu-section">
-			<div class="container">
-				<div class="menu-box">
-					<h1 class="menu-title">~ chef’s best ~</h1>
-					<div class="owl-wrapper">
-						<div class="owl-carousel" data-num="3">
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m1.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">chicken burger  /  $11.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one grey" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m2.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Beef Burger  /  $15.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one grey" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m3.png" alt="">
-										<span class="new-prod">New</span>
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Double Burger  /  $13.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one grey" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
+		<section class="big-menu-section reverse-order">
+			<div class="item-content">
+				<div class="title">
+					<h1>Beef Burger</h1>
 				</div>
+				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
+				<h1 class="price">
+					$14.<span>79</span>
+				</h1>
+				<div class="social-share">
+					<span>Share:</span>
+					<ul class="social-icons">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+					</ul>
+				</div>
+				<a href="#" class="button-one">Order Now</a>
+			</div>
+			<div class="image-holder">
+				<img src="upload/menu/b2.jpg" alt="">
 			</div>
 		</section>
-		<!-- End medium-menu section -->
+		<!-- End big-menu section -->
 
-		<!-- medium-menu-section 
+		<!-- big-menu-section 
 			================================================== -->
-		<section class="medium-menu-section skin-col-back">
-			<div class="container">
-				<div class="menu-box">
-					<h1 class="menu-title">~ traditional ~</h1>
-					<div class="owl-wrapper">
-						<div class="owl-carousel" data-num="3">
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m1.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">chicken burger  /  $11.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m2.png" alt="">
-
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Beef Burger  /  $15.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="menu-post">
-									<div class="image-holder">
-										<img src="upload/menu/m3.png" alt="">
-									</div>
-									<div class="post-content">
-										<h2><a href="#">Double Burger  /  $13.99</a></h2>
-										<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base.</p>
-										<a class="button-one" href="#">Order Now</a>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
+		<section class="big-menu-section premium">
+			<div class="item-content">
+				<div class="title">
+					<h1>PREMIUM Burger</h1>
 				</div>
+				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
+				<h1 class="price">
+					$12.<span>99</span>
+				</h1>
+				<div class="social-share">
+					<span>Share:</span>
+					<ul class="social-icons">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+					</ul>
+				</div>
+				<a href="#" class="button-one">Order Now</a>
+			</div>
+			<div class="image-holder">
+				<img src="upload/menu/b3.jpg" alt="">
 			</div>
 		</section>
-		<!-- End medium-menu section -->
+		<!-- End big-menu section -->
+
+		<!-- big-menu-section 
+			================================================== -->
+		<section class="big-menu-section reverse-order">
+			<div class="item-content">
+				<div class="title">
+					<h1>Double Burger</h1>
+				</div>
+				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
+				<h1 class="price">
+					$21.<span>59</span>
+				</h1>
+				<div class="social-share">
+					<span>Share:</span>
+					<ul class="social-icons">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+					</ul>
+				</div>
+				<a href="#" class="button-one">Order Now</a>
+			</div>
+			<div class="image-holder">
+				<img src="upload/menu/b4.jpg" alt="">
+			</div>
+		</section>
+		<!-- End big-menu section -->
 
 		<!-- testimonial-section 
 			================================================== -->
