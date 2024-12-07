@@ -27,12 +27,12 @@
 		<section class="comming-soon-section">
 			<div class="comming-soon-content">
 				<div class="container">
-					<img src="images/foody.png" alt="">
-					<h1>under construction</h1>
-					<p>We are under counstruction, We will be back at</p>
+					<img src="{% static 'images/foody.png' %}" alt="">
+					<h1>En construcción</h1>
+					<p>Estamos contruyendo algo nuevo, Mientras terminamos, Por favor vuelve atras</p>
 					<div id="clock">
 						<div class="row">
-							<div class="col-sm-3">
+							<div class="col-sm-12">
 								<div class="comming-part no-border">
 									<span id="days"></span>
 									<p>Days</p>
@@ -60,9 +60,9 @@
 						
 					</div>
 					<form class="subscribe">
-						<p>Thank you for your Patience <br> Please subscribe and you will be notified as soon as possible.</p>
-						<input type="text" id="subscribe" name="subscribe" placeholder="Email"/>
-						<button>Submit</button>
+						<p>Te agradecemos tu paciencia <br> Por favor subscribete y obten noticias y actualizaciones del sitio</p>
+						<input type="text" id="subscribe" name="subscribe" placeholder="Correo electronico"/>
+						<button>Subscribirse</button>
 					</form>
 				</div>
 			</div>
@@ -72,14 +72,14 @@
 	</div>
 	<!-- End Container -->
 
-	<script src="js/foody.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/DevSolutionSkill.min.js"></script>
-	<script src="js/jquery.themepunch.tools.min.js"></script>
-	<script src="js/jquery.themepunch.revolution.min.js"></script>
-	<script src="js/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
-	<script src="js/gmap3.min.js"></script>
-	
+	<script src="{% static 'js/foody.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/DevSolutionSkill.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
+	<script src="{% static 'js/gmap3.min.js' %}"></script>
+
 </body>
 </html>

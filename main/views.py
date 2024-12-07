@@ -61,3 +61,6 @@ def delivery(request):
 
 def error404(request):
     return render(request, 'error-404.html')  # Cargar el archivo error-404.html
+
+def underConstruction(request):
+    return render(request, 'under-construction.html')  # Cargar el archivo error-404.html

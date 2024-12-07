@@ -2,9 +2,9 @@ JAZZMIN_SETTINGS = {
     "site_title": "Administrador",
     "site_header": "Página Dinámica",
     "site_brand": "Página Dinámica",
-    "site_logo": "img/logo.png",
+    "site_logo": "images/logo.png",
     "welcome_sign": "Bienvenido al Administrador",
-    "user_themes": True,
+    #"user_themes": True,
 
     "search_model": [
         "main.Item",
@@ -12,7 +12,6 @@ JAZZMIN_SETTINGS = {
 
     "copyright": "REX DEVELOP",
     "site_logo_classes": "rounded-circle",
-    "custom_css": "css/custom_admin.css",
 
     "topmenu_links": [
         {"name": "Inicio", "url": "admin:index", "permissions": ["auth.view_user"]},
@@ -62,7 +61,7 @@ JAZZMIN_UI_TWEAKS = {
     "footer_small_text": True,
     "body_small_text": True,
     "brand_small_text": True,
-    "brand_colour": "#44475a",
+    "brand_colour": "#007A2F",
     "accent": "accent-olive",
     "navbar": "navbar-dark",
     "no_navbar_border": False,
@@ -82,13 +81,13 @@ JAZZMIN_UI_TWEAKS = {
         "danger": "btn-danger",
         "success": "btn-success"
     },
-    "navbar_header_background": "#44475a",  # Fondo de la cabecera
-    "navbar_header_color": "#f8f8f2",  # Color del texto en la cabecera
-    "primary_button_bg": "#ff79c6",  # Fondo del botón principal
+    "navbar_header_background": "#007A2F",  # Fondo de la cabecera
+    "navbar_header_color": "#F5F5F5",  # Color del texto en la cabecera
+    "primary_button_bg": "#FFB6C1",  # Fondo del botón principal
     "secondary_button_bg": "#8be9fd",  # Fondo del botón secundario
     "link_color": "#8be9fd",  # Color de los enlaces
     "link_hover_color": "#bd93f9",  # Color de los enlaces al pasar el ratón
     "sidebar_nav_link_color": "#f8f8f2",  # Color de los enlaces en la barra lateral
-    "sidebar_nav_active_background": "#44475a",  # Fondo del enlace activo
+    "sidebar_nav_active_background": "#007A2F",  # Fondo del enlace activo
     "actions_sticky_top": False,
 }

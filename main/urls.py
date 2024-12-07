@@ -17,6 +17,7 @@ urlpatterns = [
     path('blog/', views.blog, name='blog'),  # Ruta para la página "single-post"
     path('delivery/', views.delivery, name='delivery'),  # Ruta para la página "delivery"
     path('error-404/', views.error404, name='error-404'),  # Ruta para la página "error-404"
+    path('under-construction/', views.underConstruction, name='under-Construction'),  # Ruta para la página "under-construcction"
 
     # Ruta para imagen y precio en los inlines para paquetes en el Administrador
     path('obtener_imagen_y_precio/<int:item_id>/', views.obtener_imagen_y_precio, name='obtener_imagen_y_precio'),

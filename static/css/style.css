@@ -1842,7 +1842,7 @@ section.medium-menu-section .menu-post .post-content h2 {
 }
 
 section.medium-menu-section .menu-post .post-content h2 a {
-    color: #000;
+    color: var(--tertiary-color);
 }
 
 section.medium-menu-section .menu-post .post-content h2 a:hover {
@@ -1850,7 +1850,7 @@ section.medium-menu-section .menu-post .post-content h2 a:hover {
 }
 
 section.medium-menu-section .menu-post .post-content p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
     font-size: 15px;
     line-height: 22px;
     margin-bottom: 25px;
@@ -1872,11 +1872,11 @@ section.medium-menu-section.skin-col-back .menu-post .image-holder span.new-prod
 }
 
 section.medium-menu-section.skin-col-back .menu-post .post-content h2 a {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 
 section.medium-menu-section.skin-col-back .menu-post .post-content p {
-    color: var(--secondary-color);
+    color: var(--tertiary-color);
 }
 
 section.medium-menu-section.skin-col-back .menu-post .post-content a.button-one {
