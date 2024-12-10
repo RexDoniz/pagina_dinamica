@@ -40,7 +40,7 @@
 			<div class="container">
 				<div class="blog-box">
 					<div class="single-post">
-						<img src="upload/blog/s1.jpg" alt="">
+						<img src="{% static 'upload/blog/s1.jpg' %}" alt="">
 						<ul class="post-meta">
 							<li>
 								<a href="#">by johny bravo</a>
@@ -70,7 +70,7 @@
 							</div>
 							<div class="col-md-6">
 								<div class="video-box">
-									<img src="upload/blog/s2.jpg" alt="">
+									<img src="{% static 'upload/blog/s2.jpg' %}" alt="">
 									<a href="#" class="zoom"><i class="fa fa-play"></i></a>
 								</div>
 							</div>
@@ -82,7 +82,7 @@
 							<div class="col-md-8">
 								<div class="author-box">
 									<div class="image-hold">
-										<img src="upload/blog/avatar.jpg" alt="">
+										<img src="{% static 'upload/blog/avatar.jpg' %}" alt="">
 									</div>
 									<div class="author-content">
 										<h3>Bearded guy  /  Admin of Foody</h3>
@@ -166,7 +166,7 @@
 						<div class="row">
 							<div class="col-md-4">
 								<div class="blog-post">
-									<img src="upload/blog/r1.jpg" alt="">
+									<img src="{% static 'upload/blog/r1.jpg' %}" alt="">
 									<div class="post-content">
 										<ul class="post-meta">
 											<li>
@@ -184,7 +184,7 @@
 							</div>
 							<div class="col-md-4">
 								<div class="blog-post">
-									<img src="upload/blog/r2.jpg" alt="">
+									<img src="{% static 'upload/blog/r2.jpg' %}" alt="">
 									<div class="post-content">
 										<ul class="post-meta">
 											<li>
@@ -202,7 +202,7 @@
 							</div>
 							<div class="col-md-4">
 								<div class="blog-post">
-									<img src="upload/blog/r3.jpg" alt="">
+									<img src="{% static 'upload/blog/r3.jpg' %}" alt="">
 									<div class="post-content">
 										<ul class="post-meta">
 											<li>
@@ -258,14 +258,14 @@
 	</div>
 	<!-- End Container -->
 
-	<script src="js/foody.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/DevSolutionSkill.min.js"></script>
-	<script src="js/jquery.themepunch.tools.min.js"></script>
-	<script src="js/jquery.themepunch.revolution.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="{% static 'js/foody.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/DevSolutionSkill.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.tools.min.js' %}"></script>
+	<script src="{% static 'js/jquery.themepunch.revolution.min.js' %}"></script>
+	<script src="{% static 'js/script.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
-	<script src="js/gmap3.min.js"></script>
+	<script src="{% static 'js/gmap3.min.js' %}"></script>
 	
 </body>
 </html>

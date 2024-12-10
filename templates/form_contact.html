@@ -1,0 +1,28 @@
+<!-- form_contact.html -->
+<section class="reservation-section">
+	{% load static %}
+    <div class="container">
+        <div class="item-content">
+            <div class="row">
+                <div class="col-lg-8">
+                    <form id="reservation-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input name="name" id="name" type="text" placeholder="Tu Nombre">
+                            </div>
+                            <div class="col-md-6">
+                                <input name="email" id="email" type="text" placeholder="Tu Email">
+                            </div>
+                        </div>
+                        <input name="address" id="address" type="text" placeholder="Tu mensaje">
+                        <input type="submit" id="submit_reservation" value="Enviar">
+                        <p>Nos pondremos en contacto pronto</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image-holder">
+        <img src="{% static 'upload/others/a6.png' %}" alt="">
+    </div>
+</section>
