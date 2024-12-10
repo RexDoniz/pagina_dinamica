@@ -1,8 +1,10 @@
 # Create your views here.
+import random
+
 from django.http import JsonResponse
 from django.shortcuts import render
 
-from .models import Item
+from .models import Item, Paquete
 
 
 def obtener_imagen_y_precio(request, item_id):
@@ -20,9 +22,39 @@ def obtener_imagen_y_precio(request, item_id):
         return JsonResponse({'error': 'Item no encontrado'}, status=404)
 
 
+import random
+from django.shortcuts import render
+from .models import Paquete, Item
+
+import random
+from django.shortcuts import render
+from .models import Paquete, Item, Precio
+
 
 def index(request):
-    return render(request, 'index.html')  # Cargar el archivo index.html
+    paquetes = Paquete.objects.filter(activo=True)
+    items = Item.objects.filter(disponible=True, estado=True)
+
+    item_seleccionado = random.choice(items) if items else None
+
+    if item_seleccionado:
+        item_seleccionado.precio_estandar = item_seleccionado.precios.filter(tipo_precio='estandar',
+                                                                             activo=True).first()
+    else:
+        item_seleccionado.precio_estandar = None
+
+    transitions = [
+        'slideoverup', 'slideoverdown', 'slideoverright', 'slideoverleft', 'slideoverhorizontal', 'slideoververtical'
+    ]
+
+    for paquete in paquetes:
+        paquete.transition = random.choice(transitions)
+
+    return render(request, 'index.html', {
+        'paquetes': paquetes,
+        'item': item_seleccionado,
+    })
+
 
 def about(request):
     return render(request, 'about.html')  # Cargar el archivo about.html

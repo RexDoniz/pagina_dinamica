@@ -1,0 +1,27 @@
+<!-- special_item.html -->
+<section class="week-item-section">
+        {% load static %}
+        {% load humanize %}
+    <div class="container">
+        <div class="item-content">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="title">
+                        <span>Este Brincolin es genial!</span>
+                        <h1>{{ item.nombre }}</h1>
+                    </div>
+                    <p>{{ item.descripcion }}</p>
+                    {% if item.precio_estandar %}
+                    <p>${{ item.precio_estandar.precio|floatformat:2|intcomma }}</p>
+                    {% else %}
+                    <p>No se encontró precio estándar</p>
+                    {% endif %}
+                    <a href="#" class="button-one">Compralo Ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image-holder">
+        <img src="{{ MEDIA_URL }}media/{{ item.imagen_portada }}" alt="">
+    </div>
+</section>

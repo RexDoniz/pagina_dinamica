@@ -864,7 +864,7 @@ section.page-banner-section.blog.single h1 {
 /* week item section */
 /*------------------------------------------------- */
 section.week-item-section {
-    padding: 100px 0;
+    padding: 40px 0;
     background: var(--primary-color) url("../images/dev1.png") bottom left no-repeat;
     position: relative;
     overflow: hidden;

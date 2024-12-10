@@ -1,0 +1,112 @@
+<!-- home_section.html -->
+<section id="home-section">
+    {% load static %}
+    {% load humanize %}
+    <div id="rev_slider_202_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="concept1" style="background-color:#000000;padding:0px;">
+        <!-- START REVOLUTION SLIDER 5.1.1RC fullscreen mode -->
+        <div id="rev_slider_202_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.1.1RC">
+            <ul>
+                <!-- SLIDE  -->
+                {% for paquete in paquetes %}
+                <li data-index="rs-{{ forloop.counter }}" data-transition="paquete.transition" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default"  data-thumb="{{ MEDIA_URL }}media/{{ paquete.banner }}" data-rotate="0" data-saveperformance="off" data-title="{{ paquete.nombre }}" data-description="{{ paquete.descripcion }}">
+                    <!-- MAIN IMAGE -->
+                    <img src="{{ MEDIA_URL }}media/{{ paquete.banner }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                    <!-- LAYERS -->
+
+                    <!-- LAYER NR. 1 -->
+                        <div class="tp-bg-text tp-caption Concept-Title tp-resizeme rs-parallaxlevel-2"
+                            id="slide-672-layer-1"
+                            data-x="['center','center','center','center']"
+                            data-hoffset="['1400','1400','1400','1400']"
+                            data-y="['middle','middle','middle','middle']"
+                            data-fontsize="['75','60','50','40']"
+                            data-lineheight="['80','60','50','40']"
+                            data-voffset="['50','50','50','50']"
+                            data-whitespace="nowrap"
+                            data-transform_idle="o:1;"
+                            data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                            data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                            data-start="1400"
+                            data-splitin="none"
+                            data-splitout="none"
+                            data-responsive_offset="on"
+                            style="z-index: 5; white-space: nowrap;">
+
+                        </div>
+
+                    <!-- LAYER NR. 1 -->
+                    <div class="tp-caption Concept-Title tp-resizeme rs-parallaxlevel-2"
+                        id="slide-672-layer-2"
+                        data-x="['left','left','left','left']"
+                        data-hoffset="['680','520','150','75']"
+                        data-y="['middle','middle','middle','middle']"
+                        data-fontsize="['75','60','50','40']"
+                        data-lineheight="['80','60','50','40']"
+                        data-voffset="['10','20','20','20']"
+                        data-whitespace="nowrap"
+                        data-transform_idle="o:1;"
+                        data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                        data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                        data-start="1800"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-responsive_offset="on"
+                        style="z-index: 7; white-space: nowrap;">
+                        {{ paquete.nombre }}
+                    </div>
+
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption Concept-SubTitle tp-resizeme rs-parallaxlevel-2"
+                        id="slide-672-layer-3"
+                        data-x="['left','left','left','left']"
+                        data-hoffset="['680','520','150','75']"
+                        data-y="['middle','middle','middle','middle']"
+                        data-voffset="['140','140','130','110']"
+                        data-fontsize="['19','19','18','14']"
+                        data-lineheight="['29','28','26','24']"
+                        data-width="none"
+                        data-height="none"
+                        data-whitespace="nowrap"
+                        data-transform_idle="o:1;"
+                        data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                        data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                        data-start="2100"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-responsive_offset="on"
+                        style="z-index: 6; white-space: nowrap;font-style:italic;">
+                        {{ paquete.descripcion }}
+                    </div>
+
+                    <!-- LAYER NR. 3 -->
+                    <div class="tp-caption Concept-SubTitle tp-resizeme rs-parallaxlevel-2"
+                        id="slide-672-layer-4"
+                        data-x="['center','center','center','center']"
+                        data-hoffset="['-20','-60','-20','-20']"
+                        data-y="['middle','middle','middle','middle']"
+                        data-voffset="['-110','-110','-110','-110']"
+                        data-fontsize="['15','15','16','16']"
+                        data-width="none"
+                        data-height="none"
+                        data-whitespace="nowrap"
+                        data-transform_idle="o:1;"
+                        data-transform_in="z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;s:1500;e:Power3.easeInOut;"
+                        data-transform_out="x:left(R);s:1000;e:Power3.easeIn;s:1000;e:Power3.easeIn;"
+                        data-start="2300"
+                        data-splitin="none"
+                        data-splitout="none"
+                        data-responsive_offset="on"
+                        style="z-index: 6; white-space: nowrap;"><a class="order-button" href="#">OFERTA <br>
+                            <span>${{ paquete.precio|floatformat:2|intcomma }}</span>
+                        </a>
+                    </div>
+
+                </li>
+                {% endfor %}
+                <!-- SLIDE  -->
+            </ul>
+            <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+        </div>
+    </div>
+    <!-- END REVOLUTION SLIDER -->
+</section>
