@@ -41,7 +41,7 @@ def index(request):
         item_seleccionado.precio_estandar = item_seleccionado.precios.filter(tipo_precio='estandar',
                                                                              activo=True).first()
     else:
-        item_seleccionado.precio_estandar = None
+        item_seleccionado.precio_estandar = ''
 
     transitions = [
         'slideoverup', 'slideoverdown', 'slideoverright', 'slideoverleft', 'slideoverhorizontal', 'slideoververtical'
