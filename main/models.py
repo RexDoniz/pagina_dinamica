@@ -122,7 +122,8 @@ class Cliente(models.Model):
 
 class Paquete(models.Model):
     nombre = models.CharField(max_length=200)  # Nombre del paquete
-    descripcion = models.TextField()  # Descripción del paquete
+    descripcion = models.CharField(max_length=100)  # Descripción del paquete
+    descripcion_completa = models.TextField()  # Descripción del paquete
     banner = models.ImageField(verbose_name='banner',upload_to='banner/paquetes/', blank=True, null=True)
     precio = models.DecimalField(max_digits=10, decimal_places=2)  # Precio del paquete
     fecha_inicio = models.DateField(null=True, blank=True)  # Fecha de inicio del paquete

@@ -41,51 +41,93 @@
 			<div class="container">
 				<div class="blog-box">
 					<div class="single-post">
-						<img src="{{ MEDIA_URL }}/media/{{ paquete.banner }}" alt="">
-						<h2>{{ paquete.nombre }}</h2>
-						<p> {{ paquete.descripcion }}</p>
-						<p class="quote-line">{{ paquete.descripcion_completa }}</p>
+						<img src="{{ MEDIA_URL }}/media/{{ item.imagen_portada }}" alt="">
+						<h2>{{ item.nombre }}</h2>
+						<p> {{ item.descripcion }}</p>
+						<p class="quote-line">{{ item.descripcion_completa }}</p>
+
 						<br>
-						<h2><p>Precio: $ {{ paquete.precio|floatformat:2|intcomma }}</p></h2>
-						<br>
+						{% for precio in item.precios.all %}
+							{% if precio.activo %}
+								<h2><p>{{ precio.tipo_precio}} : $ {{ precio.precio|floatformat:2|intcomma }} </p></h2>
+							{% endif %}
+						{% endfor %}
 						<div class="row">
 							<div class="related-posts">
 								<div class="center-area">
 									<h2>PRODUCTOS/SERVICIOS DEL PAQUETE</h2>
 								</div>
-
 								<div class="row">
 									{% for producto in paquete.productos.all %}
-										{% if forloop.counter0|divisibleby:3 and forloop.counter0 != 0 %}
-											</div><div class="row">  <!-- Crea una nueva fila cada 3 productos -->
-										{% endif %}
-
 										<div class="col-md-4">
 											<div class="blog-post">
 												<img src="{{ MEDIA_URL }} /media/{{ producto.imagen_portada }}" alt="">
 												<div class="post-content">
-													<h2><a href="/producto/{{ producto.id }}">{{ producto.nombre }}</a></h2>
+													<h2><a href="paquete/1">{{ producto.nombre }}</a></h2>
 													<p>{{ producto.descripcion }}</p>
 
 													{% for precio in producto.precios.all %}
-													 	{% if precio.activo %}
-															<a>{{ precio.tipo_precio}} : $ {{ precio.precio|floatformat:2|intcomma }} </a><br>
-													    {% endif %}
+														<a>{{ precio.tipo_precio}} : $ {{ precio.precio|floatformat:2|intcomma }} </a><br>
 													{% endfor %}
 													<a href="#"></a>
 												</div>
 											</div>
 										</div>
-
 									{% empty %}
-										<div class="col-md-12">
+									<div class="col-md-4">
 											<div class="blog-post">
 												<img src="{% static 'upload/blog/r1.jpg' %}" alt="">
 												<div class="post-content">
-													<h2>No hay productos disponibles</h2>
+													<ul class="post-meta">
+														<li>
+															<a href="#">12-01-2016</a>
+														</li>
+														<li>
+															<a href="#">13 comments</a>
+														</li>
+													</ul>
+													<h2><a href="single-post.html">Another post</a></h2>
+													<p>A chef is a highly trained and skilled professional cook who is proficient in all aspects of food preparation of a particular cuisine. The word "chef" is derived...</p>
+													<a href="#">by johny bravo</a>
 												</div>
 											</div>
 										</div>
+									<div class="col-md-4">
+										<div class="blog-post">
+											<img src="{% static 'upload/blog/r2.jpg' %}" alt="">
+											<div class="post-content">
+												<ul class="post-meta">
+													<li>
+														<a href="#">12-01-2016</a>
+													</li>
+													<li>
+														<a href="#">13 comments</a>
+													</li>
+												</ul>
+												<h2><a href="single-post.html">Different post</a></h2>
+												<p>A chef is a highly trained and skilled professional cook who is proficient in all aspects of food preparation of a particular cuisine. The word "chef" is derived...</p>
+												<a href="#">by johny bravo</a>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="blog-post">
+											<img src="{% static 'upload/blog/r3.jpg' %}" alt="">
+											<div class="post-content">
+												<ul class="post-meta">
+													<li>
+														<a href="#">12-01-2016</a>
+													</li>
+													<li>
+														<a href="#">13 comments</a>
+													</li>
+												</ul>
+												<h2><a href="single-post.html">Another post</a></h2>
+												<p>A chef is a highly trained and skilled professional cook who is proficient in all aspects of food preparation of a particular cuisine. The word "chef" is derived...</p>
+												<a href="#">by johny bravo</a>
+											</div>
+										</div>
+									</div>
 									{% endfor %}
 								</div>
 							</div>
@@ -144,6 +186,7 @@
 										</ul>
 										<h2><a href="single-post.html">Another post</a></h2>
 										<p>A chef is a highly trained and skilled professional cook who is proficient in all aspects of food preparation of a particular cuisine. The word "chef" is derived...</p>
+										<a href="#">by johny bravo</a>
 									</div>
 								</div>
 							</div>

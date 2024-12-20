@@ -159,6 +159,7 @@ class PaqueteAdmin(admin.ModelAdmin):
                 ('banner', ),
                 ('nombre',),
                 ( 'descripcion',),
+                ('descripcion_completa',),
                 ( 'precio',),
                 ('fecha_inicio', 'fecha_fin',),
                 ( 'activo', )

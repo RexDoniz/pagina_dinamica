@@ -11,6 +11,7 @@ TIPO_PRECIO_CHOICES = [
 
 # Tipos de item
 TIPO_CHOICES = [
-    ('producto', 'Producto'),
-    ('servicio', 'Servicio'),
+    #singular y plural
+    ('productos', 'Producto'),
+    ('servicios', 'Servicio'),
 ]

@@ -14,11 +14,15 @@
                     <a class="nav-link active" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/menu">Productos</a>
+                    <a class="nav-link" href="/productos">Catalogo</a>
                     <ul class="dropdown">
-                        <li><a href="/menu">Menu Small</a></li>
-                        <li><a href="/menu-medium">Menu Medium</a></li>
-                        <li><a href="/menu-big">Menu Big</a></li>
+                        {% for tipo in tipos %}
+                            <li><a href="/{{ tipo }}">{{ tipo }}</a></li>
+                        {% empty %}
+                            <li><a href="/menu/">aun no hay nada</a></li>
+                        {% endfor %}
+                        <li><a href="/paquetes">Paquetes</a></li>
+                        <li><a href="/menu/todo">Todo</a></li>
                     </ul>
                 </li>
             </ul>
