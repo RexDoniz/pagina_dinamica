@@ -67,7 +67,7 @@ class ContactView(TemplateView):
     template_name = 'contact.html'
 
 
-# Vista para la página "Menu"
+# Vista para la página "Productos"
 class ProductosView(TemplateView):
     template_name = 'menu.html'
 
@@ -78,32 +78,40 @@ class ProductosView(TemplateView):
         return context
 
 
+# Vista para la página "Producto"
 class ProductoView(TemplateView):
     template_name = 'single-item.html'
 
     def dispatch(self, request, *args, **kwargs):
-        # Intentar obtener el item usando el ID desde los parámetros de la URL
-        paquete_id = self.kwargs.get('producto_id')
-        print("producto_id", paquete_id)
-        item = Item.objects.filter(id=paquete_id, disponible=True, estado=True).first()
-
-        # Si el item no existe o no está activo, redirigir al inicio
-        if not item:
+        """Maneja la solicitud y redirige si el producto no es válido."""
+        self.producto_id = self.kwargs.get('producto_id')
+        if not self.producto_id:
             return redirect('index')
-
-        # Si el item es válido, seguir con el flujo normal
-        self.item = item
+        self.item = self.obtener_item(self.producto_id)
+        if not self.item:
+            return redirect('index')  # Redirigir si el producto no fue encontrado
         return super().dispatch(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        # Obtener el contexto base
-        context = super().get_context_data(**kwargs)
+    def obtener_item(self, producto_id):
+        """Encapsula la lógica de obtención del producto con manejo de excepciones."""
+        try:
+            return Item.objects.filter(
+                id=producto_id,
+                disponible=True,
+                estado=True
+            ).first()
+        except Exception as e:
+            # Esto podría registrarse en un log
+            return None
 
-        # Pasar el item al contexto
+    def get_context_data(self, **kwargs):
+        """Añade `self.item` al contexto de la vista."""
+        context = super().get_context_data(**kwargs)
         context['item'] = self.item
         return context
 
-# Vista para la página "Menu Big"
+
+# Vista para la página "Paquetes"
 class PaquetesView(TemplateView):
     template_name = 'menu-big.html'
 
