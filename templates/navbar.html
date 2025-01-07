@@ -1,6 +1,7 @@
 <!-- navbar.html -->
 <header>
     {% load static %}
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" alt="Logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +23,6 @@
                             <li><a href="/menu/">aun no hay nada</a></li>
                         {% endfor %}
                         <li><a href="/paquetes">Paquetes</a></li>
-                        <li><a href="/menu/todo">Todo</a></li>
                     </ul>
                 </li>
             </ul>

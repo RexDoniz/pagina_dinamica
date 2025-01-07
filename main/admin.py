@@ -65,7 +65,7 @@ class ImagenProductoInline(ImageUploaderInline):
 
 # Definir el modelo de Producto
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('codigo', 'mostrar_imagen', 'nombre', 'categoria', 'disponible', 'estado', 'creado_en', 'actualizado_en')
+    list_display = ('codigo', 'mostrar_imagen','tipo', 'nombre', 'categoria', 'disponible', 'estado', 'creado_en', 'actualizado_en')
     search_fields = ('codigo', 'nombre', 'descripcion')
     list_filter = ('categoria', 'estado', 'disponible')
     ordering = ['nombre']

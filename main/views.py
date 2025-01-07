@@ -4,7 +4,7 @@ import random
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import TemplateView
 from django.urls import reverse
-from .models import Paquete, Item
+from .models import Paquete, Item, Categoria
 
 # Vista para obtener imagen y precio del item en formato JSON
 class ObtenerImagenYPrecioView(TemplateView):
@@ -73,8 +73,29 @@ class ProductosView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        items = Item.objects.filter(disponible=True, estado=True)
-        context['items'] = items
+
+        # Obtener todas las categorías activas
+        categorias = Categoria.objects.filter(estado=True)
+
+        # Agrupar productos por categoría
+        categorias_con_productos = []
+        for categoria in categorias:
+            productos = Item.objects.filter(categoria=categoria, disponible=True, estado=True, tipo="productos")
+
+            # Obtener el precio estándar de cada producto
+            for producto in productos:
+                precio_estandar = producto.precios.filter(tipo_precio="estandar", activo=True).first()
+                # Pasar el precio estándar al producto
+                producto.precio_estandar = precio_estandar.precio if precio_estandar else None
+
+            categorias_con_productos.append({
+                'categoria': categoria,
+                'productos': productos
+            })
+
+        # Pasar la lista de categorías con sus productos al contexto
+        context['categorias_con_productos'] = categorias_con_productos
+
         return context
 
 
@@ -163,6 +184,31 @@ class PaquetePostView(TemplateView):
 # Vista para la página "Menu Medium"
 class MenuMediumView(TemplateView):
     template_name = 'menu-medium.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Filtrar solo los items cuyo tipo es 'servicio'
+        servicios = Item.objects.filter(tipo='servicios', disponible=True, estado=True)
+        # Agrupar los servicios según su categoría
+        categorias = Categoria.objects.filter(estado=True)
+        categorias_con_servicios = []
+        for categoria in categorias:
+            servicios_en_categoria = servicios.filter(categoria=categoria)
+
+            for servicio in servicios_en_categoria:
+                precio_estandar = servicio.precios.filter(tipo_precio="estandar", activo=True).first()
+                # Pasar el precio estándar al producto
+                servicio.precio_estandar = precio_estandar.precio if precio_estandar else None
+
+            if servicios_en_categoria.exists():  # Solo incluir categorías con servicios
+                categorias_con_servicios.append({
+                    'categoria': categoria,
+                    'servicios': servicios_en_categoria
+                })
+        # Agregar las categorías con servicios a la plantilla
+        context['categorias_con_servicios'] = categorias_con_servicios
+        return context
 
 
 # Vista para la página de "Shopping Cart"

@@ -3,7 +3,7 @@
 <html lang="en" class="no-js">
 <head>
 	{% load static %}
-
+	{% load humanize %}
 	<title>Foody</title>
 
 	<meta charset="utf-8">
@@ -40,269 +40,45 @@
 				================================================== -->
 			<section class="small-menu-section">
 				<div class="container">
-					<div class="menu-box">
-						<h1 class="menu-title">~ trending burgers ~</h1>
-						{% for item in paquete_items %}
+				<div class="menu-box">
+					{% for categoria_con_productos in categorias_con_productos %}
+						{% if categoria_con_productos.productos.count > 0 %}
+							<h1 class="menu-title">~ {{ categoria_con_productos.categoria.nombre }} ~</h1>
+
 							<div class="row">
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">chicken burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
+								{% for item in categoria_con_productos.productos %}
+									<div class="col-lg-4 col-md-6">
+										<div class="menu-post">
+											<div class="menu-content">
+												<div class="image-holder">
+													<img src="{{ MEDIA_URL }}/media/{{ item.imagen_portada }}" alt="">
+												</div>
+												<div class="post-content">
+													<h2><a href="#">{{ item.nombre }}</a></h2>
+													<p>{{ item.descripcion }}</p>
+												</div>
+											</div>
+											<div class="menu-price-order">
+												{% if item.precio_estandar %}
+													<span class="price">${{ item.precio_estandar|floatformat:2|intcomma }}</span>
+												{% else %}
+													<span class="price">Precio no disponible</span>
+												{% endif %}
+												<a href="#" class="order">Order</a>
+												<a href="#" class="details">Details</a>
+											</div>
 										</div>
 									</div>
-									<div class="menu-price-order">
-										<span class="price">$15.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
+								{% empty %}
+									<p>No items available</p>
+								{% endfor %}
 							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Beef Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$11.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Double Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$21.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-						<div class="row">
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">chicken burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$15.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Beef Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$11.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Double Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$21.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="menu-box">
-						<h1 class="menu-title">~ chef’s best ~</h1>
-						<div class="row">
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">chicken burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$15.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Beef Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$11.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Double Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$21.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="menu-box">
-						<h1 class="menu-title">~ traditional ~</h1>
-						<div class="row">
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">chicken burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$15.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Beef Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$11.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Double Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$21.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/1.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">chicken burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$15.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/2.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Beef Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$11.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-6">
-								<div class="menu-post">
-									<div class="menu-content">
-										<div class="image-holder"><img src="{% static 'upload/menu/3.jpg' %}" alt=""></div>
-										<div class="post-content">
-											<h2><a href="#">Double Burger</a></h2>
-											<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring</p>
-										</div>
-									</div>
-									<div class="menu-price-order">
-										<span class="price">$21.99</span>
-										<a href="#" class="order">Order</a>
-										<a href="#" class="details">Details</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+						{% endif %}
+					{% endfor %}
 				</div>
+			</div>
 			</section>
+
 			<!-- End small-menu section -->
 
 			<!-- footer
@@ -319,4 +95,13 @@
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
 		<script src="{% static 'js/gmap3.min.js' %}"></script>
 	</body>
+	<style>
+		.menu-post .post-content p {
+			display: -webkit-box;        /* Hace que el párrafo se convierta en un contenedor flexible */
+			-webkit-line-clamp: 4;       /* Número de líneas a mostrar */
+			-webkit-box-orient: vertical;/* Establece la orientación del contenedor */
+			overflow: hidden;            /* Oculta el texto excedente */
+			text-overflow: ellipsis;     /* Agrega los tres puntos (...) si hay texto excedente */
+		}
+	</style>
 </html>
