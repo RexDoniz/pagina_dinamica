@@ -129,13 +129,5 @@ class Paquete(models.Model):
     fecha_inicio = models.DateField(null=True, blank=True)  # Fecha de inicio del paquete
     fecha_fin = models.DateField(null=True, blank=True)  # Fecha de fin del paquete
     activo = models.BooleanField(default=True)  # Estado del paquete
-    productos = models.ManyToManyField(Item, related_name='paquetes')  # Relación con productos (Item)
-
-    class Meta:
-        verbose_name = 'Paquete'
-        verbose_name_plural = 'Paquetes'
-        ordering = ['nombre']
-
-    def __str__(self):
-        return self.nombre
+    productos = models.ManyToManyField(Item, related_name='paquetes')
 

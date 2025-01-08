@@ -4,6 +4,7 @@
 <html lang="en" class="no-js">
 <head>
 	{% load static %}
+	{% load humanize %}
 	<title>Foody</title>
 
 	<meta charset="utf-8">
@@ -26,228 +27,82 @@
 		{% include 'navbar.html' %}
 		<!-- End Header -->
 
-		<!-- page-banner-section 
-			================================================== -->
-		<section class="page-banner-section menu">
+		<section class="page-banner-section delivery">
 			<div class="container">
-				<p>Tú estás en: <a href="/">Inicio</a> / <a href="/menu-big">Productos y Servicios L</a></p>
+					<p>Tú estás en: <a href="/">Inicio</a> / <a href="/paquetes/">Paquetes</a></p>
 			</div>
 		</section>
 		<!-- End page-banner section -->
 
-		<!-- big-menu-section 
-			================================================== -->
-		<section class="big-menu-section">
-			<div class="item-content">
-				<div class="title">
-					<h1>CHICKEN Burger</h1>
-				</div>
-				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
-				<h1 class="price">
-					$12.<span>99</span>
-				</h1>
-				<div class="social-share">
-					<span>Share:</span>
-					<ul class="social-icons">
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Instagram</a></li>
-					</ul>
-				</div>
-				<a href="#" class="button-one">Order Now</a>
-			</div>
-			<div class="image-holder">
-				<img src="{% static 'upload/menu/b1.jpg' %}" alt="">
-			</div>
-		</section>
-		<!-- End big-menu section -->
+		<section>
+			<div>
+				<div>
+				{% for paquete in paquetes %}
+					{% if forloop.counter|divisibleby:2 %}
+						<section class="big-menu-section reverse-order">
+					{% else %}
+						<section class="big-menu-section premium">
+					{% endif %}
+						<div class="item-content">
+							<div class="title">
+								<h1>{{ paquete.nombre }}</h1>
+							</div>
+							<p>{{ paquete.descripcion }}</p>
+							<h1 class="price">
+								${{ paquete.precio|floatformat:2|intcomma }}
+							</h1>
 
-		<!-- big-menu-section 
-			================================================== -->
-		<section class="big-menu-section reverse-order">
-			<div class="item-content">
-				<div class="title">
-					<h1>Beef Burger</h1>
-				</div>
-				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
-				<h1 class="price">
-					$14.<span>79</span>
-				</h1>
-				<div class="social-share">
-					<span>Share:</span>
-					<ul class="social-icons">
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Instagram</a></li>
-					</ul>
-				</div>
-				<a href="#" class="button-one">Order Now</a>
-			</div>
-			<div class="image-holder">
-				<img src="{% static 'upload/menu/b2.jpg' %}" alt="">
-			</div>
-		</section>
-		<!-- End big-menu section -->
+							<!-- Mostrar los productos relacionados con el paquete -->
 
-		<!-- big-menu-section 
-			================================================== -->
-		<section class="big-menu-section premium">
-			<div class="item-content">
-				<div class="title">
-					<h1>PREMIUM Burger</h1>
-				</div>
-				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
-				<h1 class="price">
-					$12.<span>99</span>
-				</h1>
-				<div class="social-share">
-					<span>Share:</span>
-					<ul class="social-icons">
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Instagram</a></li>
-					</ul>
-				</div>
-				<a href="#" class="button-one">Order Now</a>
-			</div>
-			<div class="image-holder">
-				<img src="{% static 'upload/menu/b3.jpg' %}" alt="">
-			</div>
-		</section>
-		<!-- End big-menu section -->
+							<ul class="product-list">
+								{% for producto in paquete.productos.all %}
+									<li class="product-item">
+										<div class="row">
+											<div class="col-md-2 product-image">
+												<img src="{{ MEDIA_URL }} /media/{{ producto.imagen_portada }}" alt="" style="max-width: 50px;">
+											</div>
+											<div class="col-md-8 product-info">
+												<a style="color:white" href="#" class="details">
+													<h3 style="color:white">{{ producto.nombre }}</h3>
+												</a>
+												<p>
+													{% for precio in producto.precios.all %}
+													 	{% if precio.activo %}
+															{% if precio.tipo_precio == 'estandar' %}
+															<a>{{ precio.tipo_precio}} : $ {{ precio.precio|floatformat:2|intcomma }} </a><br>
+															{% endif %}
+													    {% endif %}
+													{% endfor %}
+												</p>
+											</div>
+										</div>
+									</li>
+								{% empty %}
+									<p>No hay productos disponibles para este paquete.</p>
+								{% endfor %}
+							</ul>
 
-		<!-- big-menu-section 
-			================================================== -->
-		<section class="big-menu-section reverse-order">
-			<div class="item-content">
-				<div class="title">
-					<h1>Double Burger</h1>
+
+							<div class="social-share">
+								<ul class="social-icons">
+									<li><a href="#">Ver mas</a></li>
+								</ul>
+							</div>
+							<a href="#" class="button-one">Ordena Ahora</a>
+						</div>
+						<div class="image-holder">
+							<img src="{{ MEDIA_URL }}/media/{{ paquete.banner }}">
+						</div>
+					</section>
+				{% endfor %}
 				</div>
-				<p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring onion</p>
-				<h1 class="price">
-					$21.<span>59</span>
-				</h1>
-				<div class="social-share">
-					<span>Share:</span>
-					<ul class="social-icons">
-						<li><a href="#">Facebook</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Instagram</a></li>
-					</ul>
-				</div>
-				<a href="#" class="button-one">Order Now</a>
-			</div>
-			<div class="image-holder">
-				<img src="{% static 'upload/menu/b4.jpg' %}" alt="">
 			</div>
 		</section>
 		<!-- End big-menu section -->
 
 		<!-- testimonial-section 
 			================================================== -->
-		<section class="testimonial-section">
-			<div class="container">
-				<div class="testimonial-box">
-					<div class="title-box">
-						<h1 class="title-line">
-							<span>testimonials</span>
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900.88 217"><polygon points="900.88 0 868.07 217 60.56 217 0 48.04 900.88 0"/></svg>
-						</h1>
-						<p>Take a time and see what our clients have to say</p>
-					</div>
-					<div class="owl-wrapper">
-						<div class="owl-carousel" data-num="2">
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'upload/others/test1.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Bearded guy</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'upload/others/test2.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Hansom rob</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star-half-o" aria-hidden="true"></i>
-											<i class="fa fa-star-o" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'upload/others/test1.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Bearded guy</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'upload/others/test2.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Hansom rob</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star-half-o" aria-hidden="true"></i>
-											<i class="fa fa-star-o" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-						
-							<div class="item">
-								<div class="testimonial-post">
-									<img src="{% static 'upload/others/test1.jpg' %}" alt="">
-									<div class="post-content">
-										<h2>Bearded guy</h2>
-										<span>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-											<i class="fa fa-star" aria-hidden="true"></i>
-										</span>
-										<p>Great place, great people, and most of all great pizza I definetelly recommend it to all of the people, don’t miss this great spot. :)</p>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		{% include 'testimonial_section.html' %}
 		<!-- End testimonial section -->
 
 		<!-- footer 

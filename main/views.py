@@ -132,7 +132,7 @@ class ProductoView(TemplateView):
         return context
 
 
-# Vista para la página "Paquetes"
+
 class PaquetesView(TemplateView):
     template_name = 'menu-big.html'
 
@@ -147,12 +147,20 @@ class PaquetesView(TemplateView):
             # Si se pasa el ID, obtener solo el paquete correspondiente
             paquete = get_object_or_404(Paquete, id=paquete_id, activo=True)
             context['paquete'] = paquete  # Pasar el paquete al contexto
+            # Obtener los productos con sus precios estandar
+            productos = []
+            for producto in paquete.productos.all():
+                precio_estandar = producto.precios.filter(tipo_precio='estandar').first()
+                productos.append({
+                    'producto': producto,
+                    'precio_estandar': precio_estandar.precio if precio_estandar else None
+                })
+            context['productos'] = productos  # Pasar los productos con precio estándar al contexto
         else:
             # Si no se pasa el ID, mostrar todos los paquetes
             context['paquetes'] = Paquete.objects.filter(activo=True)  # Agregar todos los paquetes activos
 
         return context
-
 
 # Vista para la página "Menu Big"
 class PaquetePostView(TemplateView):
